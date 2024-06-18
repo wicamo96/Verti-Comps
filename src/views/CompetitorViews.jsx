@@ -1,7 +1,7 @@
 import { Outlet, Route, Routes } from "react-router-dom"
 import { Dashboard } from "../components/dashboard/Dashboard.jsx"
 
-export const CompetitorViews = () => {
+export const CompetitorViews = ({ currentUser }) => {
     return (
         <Routes
             path="/"
@@ -11,7 +11,7 @@ export const CompetitorViews = () => {
                 </>
             }
         >
-            <Route index element={<Dashboard />} />
+            <Route index element={<Dashboard currentUser={currentUser} />} />
         </Routes>
     )
 }
