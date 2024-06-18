@@ -2,7 +2,7 @@ import { Outlet, Route, Routes } from "react-router-dom"
 import { Dashboard } from "../components/dashboard/Dashboard.jsx"
 import { CompetitorNavBar } from "../components/navbar/CompetitorNavBar.jsx"
 
-export const CompetitorViews = () => {
+export const CompetitorViews = ({ currentUser }) => {
     return (
         <Routes>
             <Route
