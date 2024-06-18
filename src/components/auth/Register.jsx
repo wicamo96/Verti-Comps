@@ -15,18 +15,8 @@ export const Register = (props) => {
   let navigate = useNavigate()
 
   const registerNewUser = () => {
-    createUser(user).then((createdUser) => {
-      if (createdUser.hasOwnProperty("id")) {
-        localStorage.setItem(
-          "verti_user",
-          JSON.stringify({
-            id: createdUser.id,
-            staff: createdUser.isStaff,
-          })
-        )
-
-        navigate("/")
-      }
+    createUser(user).then(() => {
+      navigate("/login")
     })
   }
 

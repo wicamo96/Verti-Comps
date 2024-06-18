@@ -47,6 +47,54 @@
       "password": "myhandshurt",
       "isStaff": false,
       "leaguePoints": 0
+    },
+    {
+      "name": "will",
+      "email": "will@email.com",
+      "password": "hi",
+      "isStaff": true,
+      "leaguePoints": 0,
+      "id": 7
+    },
+    {
+      "name": "willm",
+      "email": "willm@email.com",
+      "password": "hi",
+      "isStaff": true,
+      "leaguePoints": 0,
+      "id": 8
+    },
+    {
+      "name": "hi",
+      "email": "hi@email.com",
+      "password": "hi",
+      "isStaff": true,
+      "leaguePoints": 0,
+      "id": 9
+    },
+    {
+      "name": "jk",
+      "email": "jk@email.com",
+      "password": "jk",
+      "isStaff": true,
+      "leaguePoints": 0,
+      "id": 10
+    },
+    {
+      "name": "hi",
+      "email": "hibye@email.com",
+      "password": "hibye",
+      "isStaff": true,
+      "leaguePoints": 0,
+      "id": 11
+    },
+    {
+      "name": "competitor",
+      "email": "competitor@email.com",
+      "password": "competitor",
+      "isStaff": false,
+      "leaguePoints": 0,
+      "id": 12
     }
   ],
   "competitions": [
