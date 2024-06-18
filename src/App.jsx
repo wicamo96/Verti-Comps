@@ -10,24 +10,14 @@ export const App = () => {
 
   return (
     <Routes>
-      <Route
-        path='/'
-        element={
-          <>
-            <NavBar />
-            <Outlet />
-          </>
-        }
-      >
-        <Route path='login' element={<Login />} />
-        <Route path='register' element={<Register />} />
+        <Route path='login' element={<><NavBar /><Login /> </>}/>
+        <Route path='register' element={<><NavBar /><Register /> </>} />
 
         <Route path='*' element={
           <Authorized>
             <ApplicationViews />
           </Authorized>
         } />
-      </Route>
     </Routes>
   )
 }

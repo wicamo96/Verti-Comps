@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   Navbar,
@@ -12,9 +11,9 @@ export const NavBar = () => {
 
 
   return (
-    <Navbar>
-        <NavbarBrand href="/">reactstrap</NavbarBrand>
-          <Nav container: 'fluid'>
+    <Navbar container="fluid">
+        <NavbarBrand href="/">Verti Comps</NavbarBrand>
+          <Nav className="gap-x">
             <NavItem>
               <NavLink href="/login">Login</NavLink>
             </NavItem>
