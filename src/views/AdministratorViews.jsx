@@ -3,6 +3,7 @@ import { Dashboard } from "../components/dashboard/Dashboard.jsx"
 import { AdministratorNavBar } from "../components/navbar/AdministratorNavBar.jsx"
 import { Create } from "../components/create/Create.jsx"
 import { CreateClimbList } from "../components/create/CreateClimbList.jsx"
+import { AdminValidate } from "../components/validate/AdminValidate.jsx"
 
 export const AdministratorViews = ({ currentUser }) => {
     return (
@@ -20,6 +21,9 @@ export const AdministratorViews = ({ currentUser }) => {
                 <Route path="create">
                     <Route index element={<Create currentUser={currentUser} />} />
                     <Route path="climbList" element={<CreateClimbList currentUser={currentUser} />} />
+                </Route>
+                <Route path="validate">
+                    <Route index element={<AdminValidate currentUser={currentUser} />} />
                 </Route>
             </Route>
         </Routes>

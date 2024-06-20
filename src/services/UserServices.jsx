@@ -11,3 +11,7 @@ export const createUser = (user) => {
 export const getUserInfoByEmail = (email) => {
     return fetch(`http://localhost:8088/users?email=${email}`).then(res => res.json())
 }
+
+export const getCompetitors = () => {
+    return fetch("http://localhost:8088/users?isStaff=false&_embed=competitorAscents&_embed=competitionRegistrants").then(res => res.json())
+}

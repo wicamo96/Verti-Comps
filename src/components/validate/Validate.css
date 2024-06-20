@@ -1,0 +1,9 @@
+.spaceEvenly {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.validateContainer {
+    min-width: 100vw;
+}
