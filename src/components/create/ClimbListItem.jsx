@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { PostToClimbList } from "../../services/ClimbListServices.jsx"
 import { useNavigate } from "react-router-dom"
 
-export const ClimbListItem = ({ number, setClimbListArray, climbListArray, counter, submit, newComp }) => {
+export const ClimbListItem = ({ number, counter, submit, newComp }) => {
     const [climbListObject, setClimbListObject] = useState({})
     const navigate = useNavigate()
 
@@ -12,16 +12,6 @@ export const ClimbListItem = ({ number, setClimbListArray, climbListArray, count
         setClimbListObject(copy)
     }, [])
 
-    useEffect(() => {
-        if (climbListArray.length === 0) {
-            setClimbListArray(climbListObject)
-        }
-        // } else if (climbListArray.length > 0) {
-        //     const copyArr = [...climbListArray]
-        //     copyArr.push(climbListObject)
-        //     setClimbListArray(copyArr)
-        // }
-    }, [climbListObject])
 
     useEffect(() => {
         if (submit === true) {
