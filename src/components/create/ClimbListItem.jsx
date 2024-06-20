@@ -1,4 +1,31 @@
-export const ClimbListItem = ({ number, handleClimbListChange, climbListObject }) => {
+import { useEffect, useState } from "react"
+import { PostToClimbList } from "../../services/ClimbListServices.jsx"
+import { useNavigate } from "react-router-dom"
+
+export const ClimbListItem = ({ number, counter, submit, newComp }) => {
+    const [climbListObject, setClimbListObject] = useState({})
+    const navigate = useNavigate()
+
+    useEffect(() => {
+        const copy = {...climbListObject}
+        copy.id = counter
+        setClimbListObject(copy)
+    }, [])
+
+
+    useEffect(() => {
+        if (submit === true) {
+            const climb = {
+                name: climbListObject.name,
+                details: climbListObject.details,
+                points: climbListObject.points,
+                competitionId: newComp.id
+            }
+            PostToClimbList(climb)
+            navigate("/")
+        }
+    }, [submit])
+
     return (
         <li className="rows" key={number}>
                             <input
@@ -9,7 +36,7 @@ export const ClimbListItem = ({ number, handleClimbListChange, climbListObject }
                                 onChange={(event) => {
                                     const copy = {...climbListObject}
                                     copy.name = event.target.value
-                                    handleClimbListChange(copy)
+                                    setClimbListObject(copy)
                                 }}
                             />
                             <input
@@ -20,7 +47,7 @@ export const ClimbListItem = ({ number, handleClimbListChange, climbListObject }
                                 onChange={(event) => {
                                     const copy = {...climbListObject}
                                     copy.details = event.target.value
-                                    handleClimbListChange(copy)
+                                    setClimbListObject(copy)
                                 }}
                             />
                             <input
@@ -31,7 +58,7 @@ export const ClimbListItem = ({ number, handleClimbListChange, climbListObject }
                                 onChange={(event) => {
                                     const copy = {...climbListObject}
                                     copy.points = event.target.value
-                                    handleClimbListChange(copy)
+                                    setClimbListObject(copy)
                                 }}
                             />
                         </li>   

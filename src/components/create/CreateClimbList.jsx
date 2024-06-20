@@ -9,7 +9,7 @@ export const CreateClimbList = ({ currentUser }) => {
     const [counter, setCounter] = useState(1)
     const [counterArray, setCounterArray] = useState([])
     const [climbListArray, setClimbListArray] = useState([])
-    const [climbListObject, setClimbListObject] = useState({})
+    const [submit, setSubmit] = useState(false)
 
     const handleSetCounterArray = () => {
         let arr = []
@@ -23,12 +23,6 @@ export const CreateClimbList = ({ currentUser }) => {
         let copy = counter
         copy++
         setCounter(copy)
-
-        const copyArr = [...climbListArray]
-        copyArr.push(climbListObject)
-        setClimbListArray(copyArr)
-
-        setClimbListObject({})
     }
 
     const subtractCounter = () => {
@@ -37,35 +31,6 @@ export const CreateClimbList = ({ currentUser }) => {
         setCounter(copy)
     }
 
-    const handleClimbListChange = (climbObj) => {
-        
-        if (climbListArray.length === 0) {
-            
-            climbObj.id = counter
-            setClimbListObject(climbObj)
-            
-            // setClimbListArray(climbObj)
-        
-        } else if (climbListArray.length > 0) {
-            const existingClimb = climbListArray.find(climb => climb.id === climbObj.id)
-            // const copyArr = [...climbListArray]
-            // for (const climb of copyArr) {
-            //     if (existingClimb.id === climb.id) {
-            //         climb = climbObj
-            //     }
-            // }
-            // console.log(copyArr)
-            // setClimbListArray(copyArr)
-            console.log(existingClimb)
-        }
-        else {
-            climbObj.id = counter
-            setClimbListObject(climbObj)
-            // const copyArr = {...climbListArray}
-            // copyArr.push(climbObj)
-            // setClimbListArray(copyArr)
-        }
-    }
 
     useEffect(() => {
         getCompetitionList().then(competitionObj => {
@@ -83,9 +48,6 @@ export const CreateClimbList = ({ currentUser }) => {
         handleSetCounterArray()
     }, [counter])
 
-    useEffect(() => {
-        handleClimbListChange(climbListObject)
-    }, [climbListObject])
 
     return (
         <article className="widerContainer">
@@ -98,42 +60,7 @@ export const CreateClimbList = ({ currentUser }) => {
                 </li>
                 {counterArray.map(number => {
                     return (
-                        // <li className="rows" key={number}>
-                        //     <input
-                        //         type="text"
-                        //         id="name"
-                        //         className="createInput"
-                        //         placeholder="Climb Name"
-                        //         onChange={(event) => {
-                        //             const copy = {...climbListObject}
-                        //             copy.name = event.target.value
-                        //             handleClimbListChange(copy)
-                        //         }}
-                        //     />
-                        //     <input
-                        //         type="text"
-                        //         id="details"
-                        //         className="createInput"
-                        //         placeholder="Climb Details"
-                        //         onChange={(event) => {
-                        //             const copy = {...climbListObject}
-                        //             copy.details = event.target.value
-                        //             handleClimbListChange(copy)
-                        //         }}
-                        //     />
-                        //     <input
-                        //         type="number"
-                        //         id="points"
-                        //         className="createInput"
-                        //         placeholder="Point Value"
-                        //         onChange={(event) => {
-                        //             const copy = {...climbListObject}
-                        //             copy.points = event.target.value
-                        //             handleClimbListChange(copy)
-                        //         }}
-                        //     />
-                        // </li>   
-                        <ClimbListItem key={number} handleClimbListChange={handleClimbListChange} climbListObject={climbListObject} />
+                        <ClimbListItem key={number} counter={counter} submit={submit} newComp={newComp}/>
                     )
                 })}
                 <div>
@@ -144,6 +71,9 @@ export const CreateClimbList = ({ currentUser }) => {
                         Subtract
                     </button>
                 </div>
+                <button onClick={() => setSubmit(true)}>
+                    Submit
+                </button>
             </ul>
         </article>
     )
