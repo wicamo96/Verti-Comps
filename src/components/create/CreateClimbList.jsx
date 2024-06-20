@@ -10,6 +10,7 @@ export const CreateClimbList = ({ currentUser }) => {
     const [counterArray, setCounterArray] = useState([])
     const [climbListArray, setClimbListArray] = useState([])
     const [climbListObject, setClimbListObject] = useState({})
+    const [submit, setSubmit] = useState(false)
 
     const handleSetCounterArray = () => {
         let arr = []
@@ -24,11 +25,11 @@ export const CreateClimbList = ({ currentUser }) => {
         copy++
         setCounter(copy)
 
-        const copyArr = [...climbListArray]
-        copyArr.push(climbListObject)
-        setClimbListArray(copyArr)
+        // const copyArr = [...climbListArray]
+        // copyArr.push(climbListObject)
+        // setClimbListArray(copyArr)
 
-        setClimbListObject({})
+        // setClimbListObject({})
     }
 
     const subtractCounter = () => {
@@ -37,35 +38,35 @@ export const CreateClimbList = ({ currentUser }) => {
         setCounter(copy)
     }
 
-    const handleClimbListChange = (climbObj) => {
+    // const handleClimbListChange = (climbObj) => {
         
-        if (climbListArray.length === 0) {
+    //     if (climbListArray.length === 0) {
             
-            climbObj.id = counter
-            setClimbListObject(climbObj)
+    //         climbObj.id = counter
+    //         setClimbListObject(climbObj)
             
-            // setClimbListArray(climbObj)
+    //         // setClimbListArray(climbObj)
         
-        } else if (climbListArray.length > 0) {
-            const existingClimb = climbListArray.find(climb => climb.id === climbObj.id)
-            // const copyArr = [...climbListArray]
-            // for (const climb of copyArr) {
-            //     if (existingClimb.id === climb.id) {
-            //         climb = climbObj
-            //     }
-            // }
-            // console.log(copyArr)
-            // setClimbListArray(copyArr)
-            console.log(existingClimb)
-        }
-        else {
-            climbObj.id = counter
-            setClimbListObject(climbObj)
-            // const copyArr = {...climbListArray}
-            // copyArr.push(climbObj)
-            // setClimbListArray(copyArr)
-        }
-    }
+    //     } else if (climbListArray.length > 0) {
+    //         const existingClimb = climbListArray.find(climb => climb.id === climbObj.id)
+    //         // const copyArr = [...climbListArray]
+    //         // for (const climb of copyArr) {
+    //         //     if (existingClimb.id === climb.id) {
+    //         //         climb = climbObj
+    //         //     }
+    //         // }
+    //         // console.log(copyArr)
+    //         // setClimbListArray(copyArr)
+    //         console.log(existingClimb)
+    //     }
+    //     else {
+    //         climbObj.id = counter
+    //         setClimbListObject(climbObj)
+    //         // const copyArr = {...climbListArray}
+    //         // copyArr.push(climbObj)
+    //         // setClimbListArray(copyArr)
+    //     }
+    // }
 
     useEffect(() => {
         getCompetitionList().then(competitionObj => {
@@ -83,9 +84,9 @@ export const CreateClimbList = ({ currentUser }) => {
         handleSetCounterArray()
     }, [counter])
 
-    useEffect(() => {
-        handleClimbListChange(climbListObject)
-    }, [climbListObject])
+    // useEffect(() => {
+    //     handleClimbListChange(climbListObject)
+    // }, [climbListObject])
 
     return (
         <article className="widerContainer">
@@ -133,7 +134,7 @@ export const CreateClimbList = ({ currentUser }) => {
                         //         }}
                         //     />
                         // </li>   
-                        <ClimbListItem key={number} handleClimbListChange={handleClimbListChange} climbListObject={climbListObject} />
+                        <ClimbListItem key={number} setClimbListArray={setClimbListArray} climbListArray={climbListArray} counter={counter} submit={submit} newComp={newComp}/>
                     )
                 })}
                 <div>
@@ -144,6 +145,9 @@ export const CreateClimbList = ({ currentUser }) => {
                         Subtract
                     </button>
                 </div>
+                <button onClick={() => setSubmit(true)}>
+                    Submit
+                </button>
             </ul>
         </article>
     )
