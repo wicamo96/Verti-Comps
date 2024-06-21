@@ -272,70 +272,70 @@
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 3,
             "userId": 2,
             "climbId": 3,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 4,
             "userId": 2,
             "climbId": 4,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 5,
             "userId": 2,
             "climbId": 5,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 6,
             "userId": 3,
             "climbId": 1,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 7,
             "userId": 3,
             "climbId": 3,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 8,
             "userId": 3,
             "climbId": 4,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 9,
             "userId": 3,
             "climbId": 5,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 10,
             "userId": 4,
             "climbId": 3,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 11,
             "userId": 4,
             "climbId": 4,
             "validated": true,
             "notes": ""
         },
         {
-            "id": 1,
+            "id": 12,
             "userId": 4,
             "climbId": 5,
             "validated": true,
