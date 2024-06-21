@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { getCompetitors } from "../../services/UserServices.jsx"
-import { getCompetitionList } from "../../services/CompetitionServices.jsx"
+import { getCompetitionClimbListById, getCompetitionList } from "../../services/CompetitionServices.jsx"
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Table } from "reactstrap"
 import "./Validate.css"
 
@@ -10,23 +10,50 @@ export const AdminValidate = () => {
     const [competitionList, setCompetitionList] = useState([])
     const [competition, setCompetition] = useState({})
     const [filteredCompetitorList, setFilteredCompetitorList] = useState([])
-    const [competitionDropdownOpen, setCompetitionDropdownOpen] = useState(false);
-    const [competitorDropdownOpen, setCompetitorDropdownOpen] = useState(false);
+    const [competitionDropdownOpen, setCompetitionDropdownOpen] = useState(false)
+    const [competitorDropdownOpen, setCompetitorDropdownOpen] = useState(false)
+    const [filterCompetitorRegistration, setFilterCompetitorRegistration] = useState([])
+    const [competitorAscentList, setCompetitorAscentList] = useState([])
+    const [allCompetitionsClimblist, setAllCompetitionsClimbList] = useState([])
 
     const toggleCompetitor = () => setCompetitorDropdownOpen((prevState) => !prevState);
     const toggleCompetition = () => setCompetitionDropdownOpen((prevState) => !prevState);
 
     const handleFilterCompetitors = () => {
         let arr = []
-        for (const competitorObj of competitorList) {
-            for (const competitionObj of competitor?.competitionRegistrants) {
-                if (competition && competition.competitionId === competitionObj.id) {
+        for (const competitorObj of filterCompetitorRegistration) {
+            for (const competitionObj of competitorObj.competitionRegistrants) {
+                if (competition.id === competitionObj.competitionId) {
                     arr.push(competitorObj)
+                    console.log(competitorObj)
                 }
             }
         }
         setFilteredCompetitorList(arr)
     }
+
+    const handleFilterCompetitorRegistration = () => {
+        const arr = []
+        for (const competitor of competitorList) {
+            if (competitor.competitionRegistrants) {
+                arr.push(competitor)
+            }
+        }
+        setFilterCompetitorRegistration(arr)
+    }
+
+    const handleCompetitorAndAscentList = (competitor) => {
+        setCompetitor(competitor)
+        const arr = []
+        for (const ascent of competitor.competitorAscents) {
+            if (allCompetitionsClimblist.filter(climb => climb.climbId === ascent.climbId)) {
+                arr.push(ascent)
+            }
+        }
+        setCompetitorAscentList(arr)
+    }
+
+    
 
 
     useEffect(() => {
@@ -42,8 +69,18 @@ export const AdminValidate = () => {
     }, [])
 
     useEffect(() => {
-        handleFilterCompetitors()
+        getCompetitionClimbListById(competition.id).then(climbListArr => {
+            setAllCompetitionsClimbList(climbListArr)
+        })
     }, [competition])
+
+    useEffect(() => {
+        handleFilterCompetitorRegistration()
+    }, [competition, competitorList])
+
+    useEffect(() => {
+        handleFilterCompetitors()
+    }, [competition, competitorList])
 
 
     return (
@@ -65,14 +102,15 @@ export const AdminValidate = () => {
                 <Dropdown isOpen={competitorDropdownOpen} toggle={toggleCompetitor} >
                     <DropdownToggle caret>Select Competitor</DropdownToggle>
                     <DropdownMenu>
-                        {competitorList.map(competitor => {
+                        {filteredCompetitorList.map(competitor => {
                             return (
-                                <DropdownItem key={competitor.id} onClick={() => setCompetitor(competitor)}>{competitor.name}</DropdownItem>
+                                <DropdownItem key={competitor.id} onClick={() => handleCompetitorAndAscentList(competitor)}>{competitor.name}</DropdownItem>
                             )
                         })}
                     </DropdownMenu>
                 </Dropdown>
             </div>
+                {competitor.length === 0 ? "" : <header><h2>{competitor.name}'s Climb List</h2></header>}
             <Table>
                 <thead>
                     <tr>
@@ -88,7 +126,21 @@ export const AdminValidate = () => {
                     </tr>
                 </thead>
                 <tbody>
-                
+                    {competitorAscentList.map(ascent => {
+                        return (
+                            <tr>
+                                <th scope="row">
+                                    {ascent.climbId}
+                                </th>
+                                <td>
+                                    Mark
+                                </td>
+                                <td>
+                                    Otto
+                                </td>
+                            </tr>
+                        )
+                    })}
                 </tbody>
             </Table>
         </article>
