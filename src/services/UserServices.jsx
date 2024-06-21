@@ -11,3 +11,17 @@ export const createUser = (user) => {
 export const getUserInfoByEmail = (email) => {
     return fetch(`http://localhost:8088/users?email=${email}`).then(res => res.json())
 }
+
+export const getCompetitors = () => {
+    return fetch("http://localhost:8088/users?isStaff=false&_embed=competitorAscents&_embed=competitionRegistrants").then(res => res.json())
+}
+
+export const editUserAscent = (ascentObj) => {
+    return fetch(`http://localhost:8088/competitorAscents/${ascentObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(ascentObj)
+    })
+}

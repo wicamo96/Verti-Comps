@@ -11,3 +11,11 @@ export const postNewCompetition = (competitionObj) => {
 export const getCompetitionList = () => {
     return fetch("http://localhost:8088/competitions").then(res => res.json())
 }
+
+export const getCompetitionClimbListById = (id) => {
+    return fetch(`http://localhost:8088/climbs?competitionId=${id}`).then(res => res.json())
+}
+
+export const getCompetitionsViaLeaderboard = () => {
+    return fetch("http://localhost:8088/competitions?_embed=competitionLeaderboard").then(res => res.json())
+}
