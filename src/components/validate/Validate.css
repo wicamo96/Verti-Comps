@@ -1,9 +1,23 @@
+.buttonGroup {
+    display: flex;
+    justify-content: space-around;
+    margin: 1em;
+}
+
 .spaceEvenly {
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
 }
 
+.success {
+    background-color: green;
+}
+
 .validateContainer {
     min-width: 100vw;
+}
+
+.warning {
+    background-color: yellow;
 }

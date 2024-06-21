@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getCompetitors } from "../../services/UserServices.jsx"
-import { getCompetitionClimbListById, getCompetitionList } from "../../services/CompetitionServices.jsx"
+import { getCompetitionClimbListById, getCompetitionList, getCompetitionsViaLeaderboard } from "../../services/CompetitionServices.jsx"
 import { Dropdown, DropdownItem, DropdownMenu, DropdownToggle, Table } from "reactstrap"
 import "./Validate.css"
+import { AdminValidateTableRow } from "./AdminValidateTableRow.jsx"
 
 export const AdminValidate = () => {
     const [competitorList, setCompetitorList] = useState([])
@@ -15,6 +16,7 @@ export const AdminValidate = () => {
     const [filterCompetitorRegistration, setFilterCompetitorRegistration] = useState([])
     const [competitorAscentList, setCompetitorAscentList] = useState([])
     const [allCompetitionsClimblist, setAllCompetitionsClimbList] = useState([])
+    const [competitionsViaLeaderboard, setCompetitionsViaLeaderboard] = useState([])
 
     const toggleCompetitor = () => setCompetitorDropdownOpen((prevState) => !prevState);
     const toggleCompetition = () => setCompetitionDropdownOpen((prevState) => !prevState);
@@ -25,7 +27,6 @@ export const AdminValidate = () => {
             for (const competitionObj of competitorObj.competitionRegistrants) {
                 if (competition.id === competitionObj.competitionId) {
                     arr.push(competitorObj)
-                    console.log(competitorObj)
                 }
             }
         }
@@ -53,7 +54,7 @@ export const AdminValidate = () => {
         setCompetitorAscentList(arr)
     }
 
-    
+ 
 
 
     useEffect(() => {
@@ -82,6 +83,13 @@ export const AdminValidate = () => {
         handleFilterCompetitors()
     }, [competition, competitorList])
 
+    useEffect(() => {
+        getCompetitionsViaLeaderboard().then(competitionsArr => {
+            setCompetitionsViaLeaderboard(competitionsArr)
+        })
+    }, [])
+
+
 
     return (
         <article className="validateContainer">
@@ -93,9 +101,11 @@ export const AdminValidate = () => {
                     <DropdownToggle caret>Select Competition</DropdownToggle>
                     <DropdownMenu>
                         {competitionList.map(competition => {
-                            return (
+                            const find = competitionsViaLeaderboard.find(obj => obj.id === competition.id)
+                            return (find?.competitionLeaderboard.length > 0 ?
                                 <DropdownItem key={competition.id} onClick={() => setCompetition(competition)}>{competition.name}</DropdownItem>
-                            )
+                                :
+                                "")
                         })}
                     </DropdownMenu>
                 </Dropdown>
@@ -110,7 +120,7 @@ export const AdminValidate = () => {
                     </DropdownMenu>
                 </Dropdown>
             </div>
-                {competitor.length === 0 ? "" : <header><h2>{competitor.name}'s Climb List</h2></header>}
+                {!competitor.id ? "" : <header><h2>{competitor.name}'s Climb List</h2></header>}
             <Table>
                 <thead>
                     <tr>
@@ -121,24 +131,23 @@ export const AdminValidate = () => {
                             Name
                         </th>
                         <th>
-                            Point Total
+                            Points
+                        </th>
+                        <th>
+                            Validate
+                        </th>
+                        <th>
+                            Flag
+                        </th>
+                        <th>
+                            Notes
                         </th>
                     </tr>
                 </thead>
                 <tbody>
                     {competitorAscentList.map(ascent => {
                         return (
-                            <tr>
-                                <th scope="row">
-                                    {ascent.climbId}
-                                </th>
-                                <td>
-                                    Mark
-                                </td>
-                                <td>
-                                    Otto
-                                </td>
-                            </tr>
+                            <AdminValidateTableRow ascent={ascent} allCompetitionsClimblist={allCompetitionsClimblist} />
                         )
                     })}
                 </tbody>

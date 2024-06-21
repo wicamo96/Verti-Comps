@@ -4,6 +4,7 @@ import { AdministratorNavBar } from "../components/navbar/AdministratorNavBar.js
 import { Create } from "../components/create/Create.jsx"
 import { CreateClimbList } from "../components/create/CreateClimbList.jsx"
 import { AdminValidate } from "../components/validate/AdminValidate.jsx"
+import { AdminValidateNote } from "../components/validate/AdminValidateNote.jsx"
 
 export const AdministratorViews = ({ currentUser }) => {
     return (
@@ -24,6 +25,7 @@ export const AdministratorViews = ({ currentUser }) => {
                 </Route>
                 <Route path="validate">
                     <Route index element={<AdminValidate currentUser={currentUser} />} />
+                    <Route path="note" element={<AdminValidateNote currentUser={currentUser} />} />
                 </Route>
             </Route>
         </Routes>
