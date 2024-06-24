@@ -22,6 +22,9 @@ export const AdministratorNavBar = () => {
                   <NavLink href="/competitions">Competitions</NavLink>
                 </NavItem>
                 <NavItem>
+                  <NavLink href="/leagueLeaderboard">Leaderboard</NavLink>
+                </NavItem>
+                <NavItem>
                     <NavLink 
                         href='/login'
                         onClick={() => {

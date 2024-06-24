@@ -8,6 +8,7 @@ import { AdminValidateNote } from "../components/validate/AdminValidateNote.jsx"
 import { AdminCompetitionList } from "../components/competitions/AdminCompetitionList.jsx"
 import { CompetitionRegistrants } from "../components/competitions/CompetitionRegistarants.jsx"
 import { EditCompetition } from "../components/competitions/EditCompetition.jsx"
+import { LeagueLeaderboard } from "../components/leaderboards/LeagueLeaderboard.jsx"
 
 export const AdministratorViews = ({ currentUser }) => {
     return (
@@ -34,6 +35,9 @@ export const AdministratorViews = ({ currentUser }) => {
                     <Route index element={<AdminCompetitionList currentUser={currentUser} />} />
                     <Route path="registration" element={<CompetitionRegistrants currentUser={currentUser} />} />
                     <Route path="edit" element={<EditCompetition currentUser={currentUser} />} />
+                </Route>
+                <Route path="leagueLeaderboard">
+                    <Route index element={<LeagueLeaderboard />} />
                 </Route>
             </Route>
         </Routes>
