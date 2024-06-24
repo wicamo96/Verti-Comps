@@ -5,6 +5,9 @@ import { Create } from "../components/create/Create.jsx"
 import { CreateClimbList } from "../components/create/CreateClimbList.jsx"
 import { AdminValidate } from "../components/validate/AdminValidate.jsx"
 import { AdminValidateNote } from "../components/validate/AdminValidateNote.jsx"
+import { AdminCompetitionList } from "../components/competitions/AdminCompetitionList.jsx"
+import { CompetitionRegistrants } from "../components/competitions/CompetitionRegistarants.jsx"
+import { EditCompetition } from "../components/competitions/EditCompetition.jsx"
 
 export const AdministratorViews = ({ currentUser }) => {
     return (
@@ -26,6 +29,11 @@ export const AdministratorViews = ({ currentUser }) => {
                 <Route path="validate">
                     <Route index element={<AdminValidate currentUser={currentUser} />} />
                     <Route path="note" element={<AdminValidateNote currentUser={currentUser} />} />
+                </Route>
+                <Route path="competitions">
+                    <Route index element={<AdminCompetitionList currentUser={currentUser} />} />
+                    <Route path="registration" element={<CompetitionRegistrants currentUser={currentUser} />} />
+                    <Route path="edit" element={<EditCompetition currentUser={currentUser} />} />
                 </Route>
             </Route>
         </Routes>

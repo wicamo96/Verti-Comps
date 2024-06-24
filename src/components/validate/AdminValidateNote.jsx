@@ -8,7 +8,6 @@ export const AdminValidateNote = () => {
     const [note, setNote] = useState("")
 
     const { state } = useLocation()
-    console.log(state.climb)
 
     const handleAddedNote = () => {
         const newAscentObj = {

@@ -25,3 +25,9 @@ export const editUserAscent = (ascentObj) => {
         body: JSON.stringify(ascentObj)
     })
 }
+
+export const deregisterCompetitor = (competitorRegistration) => {
+    return fetch(`http://localhost:8088/competitionRegistrants/${competitorRegistration.id}`, {
+        method: "DELETE"
+    })
+}
