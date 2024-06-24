@@ -16,7 +16,7 @@ export const CompetitorNavBar = () => {
                   <NavLink href="/validate">Validate</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/comps">Competitions</NavLink>
+                  <NavLink href="/competitions">Competitions</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink href="/leagueLeaderboard">League Leaderboard</NavLink>

@@ -19,3 +19,19 @@ export const getCompetitionClimbListById = (id) => {
 export const getCompetitionsViaLeaderboard = () => {
     return fetch("http://localhost:8088/competitions?_embed=competitionLeaderboard").then(res => res.json())
 }
+
+export const editExistingCompetition = (competitionObj) => {
+    return fetch(`http://localhost:8088/competitions/${competitionObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(competitionObj)
+    })
+}
+
+export const deleteCompetition = (competitionObj) => {
+    return fetch(`http://localhost:8088/competitions/${competitionObj.id}`, {
+        method: "DELETE"
+    })
+}
