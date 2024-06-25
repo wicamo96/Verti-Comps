@@ -5,6 +5,7 @@ import { addUserAscent, deleteUserAscent, findUserClimb } from "../../services/U
 export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
     const [validated, setValidated] = useState(false)
     const [findClimb, setFindClimb] = useState(false)
+    const [foundClimbObj, setFoundClimbObj] = useState({})
 
     const handleValidated = (bool) => {
         setValidated(bool)
@@ -24,6 +25,7 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
 
     useEffect(() => {
         findUserClimb(climb.id, currentUser.id).then(climbArr => {
+            setFoundClimbObj(climbArr[0])
             if (climbArr.length > 0) {
                 setFindClimb(true)
             } else {
@@ -56,9 +58,13 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
                 }
             </td>
             <td>
-                {/* <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
-                    Add Note
-                </Button> */}
+                {foundClimbObj.notes ?
+                <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
+                    View Note
+                </Button>
+                :
+                ""
+                }
             </td>
         </tr>
     )
