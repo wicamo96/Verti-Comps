@@ -12,8 +12,9 @@ export const CompetitionRegistrants = () => {
 
     const handleDeregistration = (competitor) => {
         const registrationInfo = filteredRegistrationList.find(registration => registration.userId === competitor.id)
-        deregisterCompetitor(registrationInfo)
-        getAndSetCompetitorList()
+        deregisterCompetitor(registrationInfo).then(() => getCompetitors().then(competitorArr => {
+            setCompetitorList(competitorArr)
+        }))
     }
 
     const getAndSetCompetitorList = () => {
