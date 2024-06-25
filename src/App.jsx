@@ -28,7 +28,7 @@ export const App = () => {
 
         <Route path='*' element={
           <Authorized>
-            <ApplicationViews currentUser={currentUser}/>
+            <ApplicationViews/>
           </Authorized>
         } />
     </Routes>
