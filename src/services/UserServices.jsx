@@ -32,6 +32,16 @@ export const deregisterCompetitor = (competitorRegistration) => {
     })
 }
 
+export const registerCompetitor = (competitionObj) => {
+    return fetch("http://localhost:8088/competitionRegistrants", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(competitionObj)
+    })
+}
+
 export const addUserAscent = (climbObj) => {
     return fetch("http://localhost:8088/competitorAscents", {
         method: "POST",
