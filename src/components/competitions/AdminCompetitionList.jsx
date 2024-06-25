@@ -16,6 +16,11 @@ export const AdminCompetitionList = ({ currentUser }) => {
         })
     }, [])
 
+    const formattedDate = (datestring) => {
+        const [year, month, day] = datestring.split("-")
+        return `${month} - ${day} - ${year}`
+    }
+
     return (
         <article className="wider">
             <h2 className="margin">Compeititons</h2>
@@ -50,7 +55,7 @@ export const AdminCompetitionList = ({ currentUser }) => {
                                     {competition.name}
                                 </th>
                                 <td>
-                                    {competition.date}
+                                    {formattedDate(competition.date)}
                                 </td>
                                 <td>
                                     {competition.location}

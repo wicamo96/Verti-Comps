@@ -31,3 +31,24 @@ export const deregisterCompetitor = (competitorRegistration) => {
         method: "DELETE"
     })
 }
+
+export const addUserAscent = (climbObj) => {
+    return fetch("http://localhost:8088/competitorAscents", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(climbObj)
+    })
+}
+
+export const deleteUserAscent = (climbObj, userId) => {
+    return fetch(`http://localhost:8088/competitorAscents?climbId=${climbObj.id}&userId=${userId}`, {
+        method: "DELETE"
+    })
+}
+        
+
+export const findUserClimb = (climbId, userId) => {
+    return fetch(`http://localhost:8088/competitorAscents?climbId=${climbId}&userId=${userId}`).then(res => res.json())
+}
