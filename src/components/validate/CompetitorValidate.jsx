@@ -52,7 +52,7 @@ export const CompetitorValidate = ({ currentUser }) => {
                             Points
                         </th>
                         <th>
-                            Validate
+                            Climbed
                         </th>
                         <th>
                             Notes

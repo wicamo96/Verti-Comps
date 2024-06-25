@@ -261,7 +261,7 @@
       "id": 1,
       "userId": 2,
       "climbId": 1,
-      "validated": false,
+      "validated": true,
       "notes": ""
     },
     {

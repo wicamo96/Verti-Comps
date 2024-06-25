@@ -1,11 +1,14 @@
 import { useEffect, useState } from "react"
 import { Button } from "reactstrap"
 import { addUserAscent, deleteUserAscent, findUserClimb } from "../../services/UserServices.jsx"
+import { useNavigate } from "react-router-dom"
 
 export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
     const [validated, setValidated] = useState(false)
     const [findClimb, setFindClimb] = useState(false)
     const [foundClimbObj, setFoundClimbObj] = useState({})
+
+    const navigate = useNavigate()
 
     const handleValidated = (bool) => {
         setValidated(bool)
@@ -58,8 +61,8 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
                 }
             </td>
             <td>
-                {foundClimbObj.notes ?
-                <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
+                {foundClimbObj?.notes ?
+                <Button color="link" onClick={() => navigate("/validate/note", { state: { foundClimbObj: foundClimbObj } })}>
                     View Note
                 </Button>
                 :
