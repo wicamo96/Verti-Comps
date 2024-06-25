@@ -6,7 +6,7 @@ import { CreateClimbList } from "../components/create/CreateClimbList.jsx"
 import { AdminValidate } from "../components/validate/AdminValidate.jsx"
 import { AdminValidateNote } from "../components/validate/AdminValidateNote.jsx"
 import { AdminCompetitionList } from "../components/competitions/AdminCompetitionList.jsx"
-import { CompetitionRegistrants } from "../components/competitions/CompetitionRegistarants.jsx"
+import { CompetitionRegistrants } from "../components/competitions/CompetitionRegistrants.jsx"
 import { EditCompetition } from "../components/competitions/EditCompetition.jsx"
 import { LeagueLeaderboard } from "../components/leaderboards/LeagueLeaderboard.jsx"
 
