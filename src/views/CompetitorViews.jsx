@@ -4,6 +4,7 @@ import { CompetitorNavBar } from "../components/navbar/CompetitorNavBar.jsx"
 import { LeagueLeaderboard } from "../components/leaderboards/LeagueLeaderboard.jsx"
 import { CompetitorValidate } from "../components/validate/CompetitorValidate.jsx"
 import { CompetitorValidateNote } from "../components/validate/CompetitorValidateNote.jsx"
+import { CompetitorCompetitionList } from "../components/competitions/CompetitorCompetitionList.jsx"
 
 export const CompetitorViews = ({ currentUser }) => {
     return (
@@ -21,6 +22,9 @@ export const CompetitorViews = ({ currentUser }) => {
                 <Route path="validate">
                     <Route index element={<CompetitorValidate currentUser={currentUser} />} />
                     <Route path="note" element={<CompetitorValidateNote currentUser={currentUser} />} />
+                </Route>
+                <Route path="competitions">
+                    <Route index element={<CompetitorCompetitionList currentUser={currentUser} />} />
                 </Route>
                 <Route path="leagueLeaderboard">
                     <Route index element={<LeagueLeaderboard />} />
