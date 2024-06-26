@@ -1,35 +1,36 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
+import { Route, Routes } from 'react-router-dom'
+import { Authorized } from './views/Authorized.jsx'
+import { ApplicationViews } from './views/ApplicationViews.jsx'
+import { Login } from './components/auth/Login.jsx'
+import { Register } from './components/auth/Register.jsx'
+import { LeagueLeaderboard } from './components/leaderboards/LeagueLeaderboard.jsx'
+import { NavBar } from './components/navbar/NavBar.jsx'
+import { useEffect, useState } from 'react'
+import { AdministratorNavBar } from './components/navbar/AdministratorNavBar.jsx'
+import { CompetitorNavBar } from './components/navbar/CompetitorNavBar.jsx'
 
-function App() {
-  const [count, setCount] = useState(0)
+export const App = () => {
+  const [currentUser, setCurrentUser] = useState({})
+
+  useEffect(() => {
+    const localVertiUser = localStorage.getItem("verti_user")
+    const vertiUserObject = JSON.parse(localVertiUser)
+
+    setCurrentUser(vertiUserObject)
+  }, [])
 
   return (
-    <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+    <Routes>
+      <Route path='/login' element={<><NavBar /><Login /></>} />
+      <Route path='/register' element={<><NavBar /><Register /></>} />
+      <Route path='/leagueLeaderboard' element={<>{!currentUser ? <NavBar /> : currentUser?.isStaff ? <AdministratorNavBar /> : <CompetitorNavBar />}<LeagueLeaderboard /></>} />
+
+        <Route path='*' element={
+          <Authorized>
+            <ApplicationViews/>
+          </Authorized>
+        } />
+    </Routes>
   )
 }
-
-export default App

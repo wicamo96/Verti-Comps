@@ -1,0 +1,21 @@
+.competitionContainer {
+    width: 40%;
+    height: 70vh;
+    border: solid ;
+    padding: 1em;
+}
+
+.dashboardContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 100vw;
+    padding: 1em;
+}
+
+.leaderboardContainer {
+    width: 60%;
+    height: 70vh;
+    border: solid ;
+    padding: 1em;
+}
