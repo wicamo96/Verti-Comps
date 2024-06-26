@@ -18,6 +18,7 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
                 userId: currentUser.id,
                 climbId: climb.id,
                 validated: false,
+                flagged: false,
                 notes: ""
             }
             addUserAscent(climbObj)
