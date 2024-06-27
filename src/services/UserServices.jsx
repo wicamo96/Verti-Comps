@@ -62,3 +62,17 @@ export const deleteUserAscent = (climbObj, userId) => {
 export const findUserClimb = (climbId, userId) => {
     return fetch(`http://localhost:8088/competitorAscents?climbId=${climbId}&userId=${userId}`).then(res => res.json())
 }
+
+export const getCompetitionPoints = (pointsObj) => {
+    return fetch(`http://localhost:8088/competitionRegistrants?id=${pointsObj.id}`).then(res => res.json())
+}
+
+export const updateCompetitionPoints = (pointsObj) => {
+    return fetch(`http://localhost:8088/competitionRegistrants/${pointsObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(pointsObj)
+    })
+}

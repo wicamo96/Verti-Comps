@@ -63,9 +63,12 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
             </td>
             <td>
                 {foundClimbObj?.notes ?
-                <Button color="link" onClick={() => navigate("/validate/note", { state: { foundClimbObj: foundClimbObj } })}>
-                    View Note
-                </Button>
+                <>
+                    <i className="fa-solid fa-triangle-exclamation"></i>
+                    <Button color="link" onClick={() => navigate("/validate/note", { state: { foundClimbObj: foundClimbObj } })}>
+                        View Note
+                    </Button>
+                </>
                 :
                 ""
                 }

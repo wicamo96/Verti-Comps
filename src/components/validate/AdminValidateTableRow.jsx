@@ -2,20 +2,58 @@ import { useEffect, useState } from "react"
 import "./Validate.css"
 import { Button } from "reactstrap"
 import { useNavigate } from "react-router-dom"
-import { editUserAscent } from "../../services/UserServices.jsx"
+import { editUserAscent, getCompetitionPoints, updateCompetitionPoints } from "../../services/UserServices.jsx"
 
-export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
+export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userObj, competition }) => {
     const [flagged, setFlagged] = useState(ascent.flagged)
     const [validated, setValidated] = useState(ascent.validated)
+    const [registrationObj, setRegistrationObj] = useState({})
+    const [updateRegistrationObj, setUpdateRegistrationObj] = useState({})
+    const [climb, setClimb] = useState({})
 
     const navigate = useNavigate()
 
     useEffect(() => {
-        const copy = {...ascent}
-            copy.validated = validated
-            copy.flagged = flagged
-            editUserAscent(copy)
-    }, [flagged])
+        if (validated) {
+            const copyAscent = {...ascent}
+            copyAscent.validated = validated
+            copyAscent.flagged = flagged
+            editUserAscent(copyAscent)
+
+            const copy = {...registrationObj}
+            copy.competitionPoints += climb.points
+            setUpdateRegistrationObj(copy)
+        } else {
+        const copyAscent = {...ascent}
+            copyAscent.validated = validated
+            copyAscent.flagged = flagged
+            editUserAscent(copyAscent)
+
+
+            const copy = {...registrationObj}
+            copy.competitionPoints -= climb.points
+            setUpdateRegistrationObj(copy)
+        }
+    }, [validated, flagged])
+
+    useEffect(() => {
+        if (updateRegistrationObj) {
+            updateCompetitionPoints(updateRegistrationObj)
+        }
+    }, [updateRegistrationObj])
+
+    // .then(getCompetitionPoints(updateRegistrationObj).then(pointsObj => setRegistrationObj(pointsObj)))
+
+    useEffect(() => {
+        const registration = userObj.competitionRegistrants.find(registrationObj => registrationObj.competitionId === competition.id)
+        console.log(registration)
+        setRegistrationObj(registration)
+    }, [userObj])
+
+    useEffect(() => {
+        const climbObj = allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)
+        setClimb(climbObj)
+    }, [ascent])
 
     const handleValidated = (bool) => {
         if (bool) {
@@ -28,41 +66,8 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
             setValidated(bool)
 
             setFlagged(!bool)
-
-            // const copy = {...ascent}
-            // copy.validated = validated
-            // copy.flagged = flagged
-            // editUserAscent(copy)
         }
     }
-
-    // const handleValidated = (bool) => {
-    //     if (bool && flagged === true) {
-    //         setValidated(bool)
-
-    //         handleFlagged(false)
-    //     } else {
-    //         const copy = {...ascent}
-    //         copy.validated = bool
-    //         editUserAscent(copy)
-    
-    //         setValidated(bool)
-    //     }
-    // }
-
-    // const handleFlagged = (bool) => {
-    //     if (bool && validated === true) {
-    //         setFlagged(bool)
-
-    //         handleValidated(false)
-    //     } else {
-    //         const copy = {...ascent}
-    //         copy.flagged = bool
-    //         editUserAscent(copy)
-
-    //         setFlagged(bool)
-    //     }
-    // }
 
     return (
         <tr key={ascent.id}>
@@ -70,10 +75,10 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
                 {ascent.climbId}
             </th>
             <td>
-                {(allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)).name}
+                {climb.name}
             </td>
             <td>
-                {(allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)).points}
+                {climb.points}
             </td>
             <td>
                 {validated ?
@@ -98,9 +103,15 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
                 }
             </td>
             <td>
+                {!ascent.notes == "" ?
+                <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
+                    Edit Note
+                </Button>
+                :
                 <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
                     Add Note
                 </Button>
+                }
             </td>
         </tr>
     )
