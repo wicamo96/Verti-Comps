@@ -1,4 +1,4 @@
-import { useLocation } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import { Button } from "reactstrap"
 import "./Validate.css"
 import { useState } from "react"
@@ -6,6 +6,8 @@ import { editUserAscent } from "../../services/UserServices.jsx"
 
 export const AdminValidateNote = () => {
     const [note, setNote] = useState("")
+
+    const navigate = useNavigate()
 
     const { state } = useLocation()
 
@@ -15,9 +17,11 @@ export const AdminValidateNote = () => {
             userId: state.climb.userId,
             climbId: state.climb.climbId,
             validated: false,
+            flagged: true,
             notes: note
         }
         editUserAscent(newAscentObj)
+        navigate("/validate")
     }
 
     const handleDeleteNote = () => {
@@ -26,9 +30,11 @@ export const AdminValidateNote = () => {
             userId: state.climb.userId,
             climbId: state.climb.climbId,
             validated: state.climb.validated,
+            flagged: false,
             notes: ""
         }
         editUserAscent(newAscentObj)
+        navigate("/validate")
     }
     
 

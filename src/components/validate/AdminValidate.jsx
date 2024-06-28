@@ -147,7 +147,7 @@ export const AdminValidate = () => {
                 <tbody>
                     {competitorAscentList.map(ascent => {
                         return (
-                            <AdminValidateTableRow ascent={ascent} allCompetitionsClimblist={allCompetitionsClimblist} />
+                            <AdminValidateTableRow ascent={ascent} allCompetitionsClimblist={allCompetitionsClimblist} competition={competition} userObj={filterCompetitorRegistration.find(registration => registration.id === ascent.userId)}/>
                         )
                     })}
                 </tbody>

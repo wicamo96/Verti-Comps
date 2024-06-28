@@ -1,40 +1,74 @@
-import { useState } from "react"
+import { useEffect, useState } from "react"
 import "./Validate.css"
 import { Button } from "reactstrap"
 import { useNavigate } from "react-router-dom"
-import { editUserAscent } from "../../services/UserServices.jsx"
+import { editUserAscent, getCompetitionPoints, updateCompetitionPoints } from "../../services/UserServices.jsx"
 
-export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
-    const [flagged, setFlagged] = useState(false)
+export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userObj, competition }) => {
+    const [flagged, setFlagged] = useState(ascent.flagged)
     const [validated, setValidated] = useState(ascent.validated)
+    const [registrationObj, setRegistrationObj] = useState({})
+    const [climb, setClimb] = useState({})
 
     const navigate = useNavigate()
 
-    const handleValidated = (bool) => {
-        if (bool === true && flagged === true) {
-            const copy = {...ascent}
-            copy.validated = bool
-            editUserAscent(copy)
-    
-            setValidated(bool)
+    useEffect(() => {
+        if (validated) {
+            const copyAscent = {...ascent}
+            copyAscent.validated = validated
+            copyAscent.flagged = flagged
+            editUserAscent(copyAscent)
 
-            handleFlagged(false)
         } else {
-            const copy = {...ascent}
-            copy.validated = bool
-            editUserAscent(copy)
-    
-            setValidated(bool)
+        const copyAscent = {...ascent}
+            copyAscent.validated = validated
+            copyAscent.flagged = flagged
+            editUserAscent(copyAscent)
+
         }
-    }
+    }, [validated, flagged])
 
-    const handleFlagged = (bool) => {
-        if (validated === true) {
-            setFlagged(bool)
-
-            handleValidated(false)
+    useEffect(() => {
+        if (validated) {
+            getCompetitionPoints(registrationObj).then(regObj => {
+                console.log(regObj)
+                regObj.competitionPoints += climb.points
+                console.log(regObj)
+                updateCompetitionPoints(regObj)
+            })
         } else {
-            setFlagged(bool)
+            getCompetitionPoints(registrationObj).then(regObj => {
+                console.log(regObj)
+                regObj.competitionPoints -= climb.points
+                console.log(regObj)
+                updateCompetitionPoints(regObj)
+            })
+        }
+    }, [validated, flagged])
+
+
+    useEffect(() => {
+        const registration = userObj.competitionRegistrants.find(registrationObj => registrationObj.competitionId === competition.id)
+        console.log(registration)
+        setRegistrationObj(registration)
+    }, [userObj])
+
+    useEffect(() => {
+        const climbObj = allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)
+        setClimb(climbObj)
+    }, [ascent])
+
+    const handleValidated = (bool) => {
+        if (bool) {
+            setValidated(bool)
+
+            setFlagged(!bool)
+
+            
+        } else {
+            setValidated(bool)
+
+            setFlagged(!bool)
         }
     }
 
@@ -44,10 +78,10 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
                 {ascent.climbId}
             </th>
             <td>
-                {(allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)).name}
+                {climb.name}
             </td>
             <td>
-                {(allCompetitionsClimblist.find(climb => climb.id === ascent.climbId)).points}
+                {climb.points}
             </td>
             <td>
                 {validated ?
@@ -62,19 +96,25 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist }) => {
             </td>
             <td>
                 {flagged ?
-                <Button className="warning" onClick={() => handleFlagged(false)}>
+                <Button className="warning" onClick={() => handleValidated(true)}>
                     <i className="fa-solid fa-flag"></i>
                 </Button>
                 :
-                <Button outline onClick={() => handleFlagged(true)}>
+                <Button outline onClick={() => handleValidated(false)}>
                     <i className="fa-solid fa-flag"></i>
                 </Button>
                 }
             </td>
             <td>
+                {!ascent.notes == "" ?
+                <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
+                    Edit Note
+                </Button>
+                :
                 <Button color="link" onClick={() => navigate("/validate/note", { state: { climb: ascent } })}>
                     Add Note
                 </Button>
+                }
             </td>
         </tr>
     )

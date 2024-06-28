@@ -187,19 +187,19 @@
       "id": 1,
       "userId": 2,
       "competitionId": 1,
-      "competitionPoints": 0
+      "competitionPoints": 75
     },
     {
       "id": 2,
       "userId": 3,
       "competitionId": 1,
-      "competitionPoints": 0
+      "competitionPoints": 50
     },
     {
       "id": 3,
       "userId": 4,
       "competitionId": 1,
-      "competitionPoints": 0
+      "competitionPoints": 30
     },
     {
       "id": 4,
@@ -258,100 +258,100 @@
   ],
   "competitorAscents": [
     {
-      "id": 1,
       "userId": 2,
       "climbId": 1,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 1
     },
     {
-      "id": 2,
       "userId": 2,
       "climbId": 2,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 2
     },
     {
-      "id": 3,
       "userId": 2,
       "climbId": 3,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 3
     },
     {
-      "id": 4,
       "userId": 2,
       "climbId": 4,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 4
     },
     {
-      "id": 5,
       "userId": 2,
       "climbId": 5,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 5
     },
     {
-      "id": 6,
       "userId": 3,
       "climbId": 1,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 6
     },
     {
-      "id": 7,
       "userId": 3,
       "climbId": 3,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 7
     },
     {
-      "id": 8,
       "userId": 3,
       "climbId": 4,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 8
     },
     {
-      "id": 9,
       "userId": 3,
       "climbId": 5,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 9
     },
     {
-      "id": 10,
       "userId": 4,
       "climbId": 3,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 10
     },
     {
-      "id": 11,
       "userId": 4,
       "climbId": 4,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 11
     },
     {
-      "id": 12,
       "userId": 4,
       "climbId": 5,
       "validated": true,
       "flagged": false,
-      "notes": ""
+      "notes": "",
+      "id": 12
     }
   ],
   "competitionLeaderboard": [
