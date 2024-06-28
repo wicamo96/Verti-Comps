@@ -1,10 +1,22 @@
+.btn-lt-txt {
+    color: var(--col-2);
+}
+
+.card {
+    min-width: 30vw;
+}
+
 .createContainer {
-    width: 50%;
-    justify-self: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    align-items: center;
+    min-height: 90vh;
+    min-width: 50%;
 }
 
 .createInput {
-    width: 50%;
+    width: 80%;
     margin: 1em;
     padding: 1em;
     height: 3em;

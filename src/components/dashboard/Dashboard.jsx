@@ -19,6 +19,7 @@ export const Dashboard = ({ currentUser }) => {
     }
 
     const formattedDate = (datestring) => {
+        console.log(datestring)
         const [year, month, day] = datestring.split("-")
         return `${month} - ${day} - ${year}`
     }
@@ -39,7 +40,7 @@ export const Dashboard = ({ currentUser }) => {
 
     return (
         <>
-            <h1 className="margin">Verti Comps</h1>
+            <h3 className="margin textDark">Dashboard</h3>
             <section className="dashboardContainer">
                 <article className="leaderboardContainer">
                     <h2>Leaderboard</h2>

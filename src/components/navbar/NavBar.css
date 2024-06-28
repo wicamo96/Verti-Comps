@@ -2,3 +2,13 @@
     display: flex;
     justify-content: flex-start;
 }
+
+.navColor {
+    background-color: var(--col-1);
+    width: 100vw;
+    padding: 1em;
+}
+
+.textColor {
+    color: var(--col-5)
+}

@@ -11,6 +11,12 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  --col-1: #DCC48E;
+  --col-2: #EAEFD3;
+  --col-3: #B3C0A4;
+  --col-4: #505168;
+  --col-5: #27233A;
 }
 
 a {

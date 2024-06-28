@@ -3,6 +3,7 @@ import { Link } from "react-router-dom"
 import { useNavigate } from "react-router-dom"
 import "./Login.css"
 import { getUserInfoByEmail } from "../../services/UserServices.jsx"
+import { Card, CardBody, CardTitle } from "reactstrap"
 
 export const Login = () => {
     const [email, setEmail] = useState("chrisc@email.com")
@@ -36,47 +37,51 @@ export const Login = () => {
 
   return (
     <main className="container-login">
+      <h1 className="textDark">Verti Comps</h1>
       <section>
         <form className="form-login" onSubmit={handleLogin}>
-          <h1>Verti Comps</h1>
-          <h2>Please sign in</h2>
-          <fieldset>
-            <div className="form-group">
-              <input
-                type="email"
-                value={email}
-                onChange={(evt) => setEmail(evt.target.value)}
-                className="form-control"
-                placeholder="Email address"
-                required
-                autoFocus
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <input
-                type="password"
-                value={password}
-                onChange={(evt) => setPassword(evt.target.value)}
-                className="form-control"
-                placeholder="Password"
-                required
-                autoFocus
-              />
-            </div>
-          </fieldset>
-          <fieldset>
-            <div className="form-group">
-              <button className="login-btn btn-info" type="submit">
-                Sign in
-              </button>
-            </div>
-          </fieldset>
+          <Card className="card">
+            <CardBody>
+            <CardTitle><h2 className="margin textDark">Please sign in</h2></CardTitle>
+            <fieldset className="margin">
+              <div className="form-group">
+                <input
+                  type="email"
+                  value={email}
+                  onChange={(evt) => setEmail(evt.target.value)}
+                  className="form-control"
+                  placeholder="Email address"
+                  required
+                  autoFocus
+                />
+              </div>
+            </fieldset>
+            <fieldset className="margin">
+              <div className="form-group">
+                <input
+                  type="password"
+                  value={password}
+                  onChange={(evt) => setPassword(evt.target.value)}
+                  className="form-control"
+                  placeholder="Password"
+                  required
+                  autoFocus
+                />
+              </div>
+            </fieldset>
+            <fieldset>
+              <div className="form-group">
+                <button className="login-btn margin btn-color" type="submit">
+                  Sign in
+                </button>
+              </div>
+            </fieldset>
+            </CardBody>
+          </Card>
         </form>
       </section>
       <section>
-        <Link to="/register">Not a member yet?</Link>
+        <Link to="/register" className="textDark">Not a member yet?</Link>
       </section>
     </main>
   )

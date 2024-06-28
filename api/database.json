@@ -258,12 +258,12 @@
   ],
   "competitorAscents": [
     {
+      "id": 1,
       "userId": 2,
       "climbId": 1,
       "validated": true,
       "flagged": false,
-      "notes": "",
-      "id": 1
+      "notes": ""
     },
     {
       "userId": 2,
