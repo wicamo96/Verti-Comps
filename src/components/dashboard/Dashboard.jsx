@@ -60,7 +60,7 @@ export const Dashboard = ({ currentUser }) => {
                         <tbody>
                         {leaderboardList.map(competitor => {
                             return (
-                                <tr key={competitor.id}>
+                                <tr className={competitor.userId === currentUser.id ? "grayBackground" : ""} key={competitor.id}>
                                     <th scope="row">
                                         {competitor.id}
                                     </th>

@@ -37,7 +37,7 @@ export const AdministratorViews = ({ currentUser }) => {
                     <Route path="edit" element={<EditCompetition currentUser={currentUser} />} />
                 </Route>
                 <Route path="leagueLeaderboard">
-                    <Route index element={<LeagueLeaderboard />} />
+                    <Route index element={<LeagueLeaderboard currentUser={currentUser} />} />
                 </Route>
             </Route>
         </Routes>

@@ -24,7 +24,7 @@ export const App = () => {
     <Routes>
       <Route path='/login' element={<><NavBar /><Login /></>} />
       <Route path='/register' element={<><NavBar /><Register /></>} />
-      <Route path='/leagueLeaderboard' element={<>{!currentUser ? <NavBar /> : currentUser?.isStaff ? <AdministratorNavBar /> : <CompetitorNavBar />}<LeagueLeaderboard /></>} />
+      <Route path='/leagueLeaderboard' element={<>{!currentUser ? <NavBar /> : currentUser?.isStaff ? <AdministratorNavBar /> : <CompetitorNavBar />}<LeagueLeaderboard currentUser={currentUser}/></>} />
 
         <Route path='*' element={
           <Authorized>

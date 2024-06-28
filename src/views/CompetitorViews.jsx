@@ -18,7 +18,7 @@ export const CompetitorViews = ({ currentUser }) => {
                     </>
                 }
             >
-                <Route index element={<Dashboard />} />
+                <Route index element={<Dashboard currentUser={currentUser} />} />
                 <Route path="validate">
                     <Route index element={<CompetitorValidate currentUser={currentUser} />} />
                     <Route path="note" element={<CompetitorValidateNote currentUser={currentUser} />} />
@@ -27,7 +27,7 @@ export const CompetitorViews = ({ currentUser }) => {
                     <Route index element={<CompetitorCompetitionList currentUser={currentUser} />} />
                 </Route>
                 <Route path="leagueLeaderboard">
-                    <Route index element={<LeagueLeaderboard />} />
+                    <Route index element={<LeagueLeaderboard currentUser={currentUser} />} />
                 </Route>
             </Route>
         </Routes>
