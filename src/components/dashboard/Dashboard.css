@@ -19,3 +19,7 @@
     border: solid ;
     padding: 1em;
 }
+
+.grayBackground {
+    background-color: lightgray;
+}

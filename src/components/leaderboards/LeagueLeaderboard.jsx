@@ -1,8 +1,9 @@
 import { useEffect, useState } from "react"
 import { getLeagueLeaderboard } from "../../services/LeaderboardServices.jsx"
 import { Table } from "reactstrap"
+import "./LeagueLeaderboard.css"
 
-export const LeagueLeaderboard = () => {
+export const LeagueLeaderboard = ({ currentUser }) => {
     const [leaderboardList, setLeaderboardList] = useState([])
 
     const getAndSetLeaderboard = () => {
@@ -41,7 +42,7 @@ export const LeagueLeaderboard = () => {
             <tbody>
             {leaderboardList.map(competitor => {
                 return (
-                    <tr>
+                    <tr className={competitor.userId === currentUser.id ? "grayBackground" : ""}>
                         <th scope="row">
                             {competitor.id}
                         </th>
