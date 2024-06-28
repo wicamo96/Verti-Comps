@@ -64,7 +64,7 @@ export const findUserClimb = (climbId, userId) => {
 }
 
 export const getCompetitionPoints = (pointsObj) => {
-    return fetch(`http://localhost:8088/competitionRegistrants?id=${pointsObj.id}`).then(res => res.json())
+    return fetch(`http://localhost:8088/competitionRegistrants/${pointsObj.id}`).then(res => res.json())
 }
 
 export const updateCompetitionPoints = (pointsObj) => {

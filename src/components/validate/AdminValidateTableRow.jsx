@@ -8,7 +8,6 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
     const [flagged, setFlagged] = useState(ascent.flagged)
     const [validated, setValidated] = useState(ascent.validated)
     const [registrationObj, setRegistrationObj] = useState({})
-    const [updateRegistrationObj, setUpdateRegistrationObj] = useState({})
     const [climb, setClimb] = useState({})
 
     const navigate = useNavigate()
@@ -20,29 +19,33 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
             copyAscent.flagged = flagged
             editUserAscent(copyAscent)
 
-            const copy = {...registrationObj}
-            copy.competitionPoints += climb.points
-            setUpdateRegistrationObj(copy)
         } else {
         const copyAscent = {...ascent}
             copyAscent.validated = validated
             copyAscent.flagged = flagged
             editUserAscent(copyAscent)
 
-
-            const copy = {...registrationObj}
-            copy.competitionPoints -= climb.points
-            setUpdateRegistrationObj(copy)
         }
     }, [validated, flagged])
 
     useEffect(() => {
-        if (updateRegistrationObj) {
-            updateCompetitionPoints(updateRegistrationObj)
+        if (validated) {
+            getCompetitionPoints(registrationObj).then(regObj => {
+                console.log(regObj)
+                regObj.competitionPoints += climb.points
+                console.log(regObj)
+                updateCompetitionPoints(regObj)
+            })
+        } else {
+            getCompetitionPoints(registrationObj).then(regObj => {
+                console.log(regObj)
+                regObj.competitionPoints -= climb.points
+                console.log(regObj)
+                updateCompetitionPoints(regObj)
+            })
         }
-    }, [updateRegistrationObj])
+    }, [validated, flagged])
 
-    // .then(getCompetitionPoints(updateRegistrationObj).then(pointsObj => setRegistrationObj(pointsObj)))
 
     useEffect(() => {
         const registration = userObj.competitionRegistrants.find(registrationObj => registrationObj.competitionId === competition.id)

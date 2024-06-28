@@ -187,19 +187,19 @@
       "id": 1,
       "userId": 2,
       "competitionId": 1,
-      "competitionPoints": 10
+      "competitionPoints": 75
     },
     {
       "id": 2,
       "userId": 3,
       "competitionId": 1,
-      "competitionPoints": 0
+      "competitionPoints": 50
     },
     {
       "id": 3,
       "userId": 4,
       "competitionId": 1,
-      "competitionPoints": 0
+      "competitionPoints": 30
     },
     {
       "id": 4,
@@ -296,6 +296,62 @@
       "flagged": false,
       "notes": "",
       "id": 5
+    },
+    {
+      "userId": 3,
+      "climbId": 1,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 6
+    },
+    {
+      "userId": 3,
+      "climbId": 3,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 7
+    },
+    {
+      "userId": 3,
+      "climbId": 4,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 8
+    },
+    {
+      "userId": 3,
+      "climbId": 5,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 9
+    },
+    {
+      "userId": 4,
+      "climbId": 3,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 10
+    },
+    {
+      "userId": 4,
+      "climbId": 4,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 11
+    },
+    {
+      "userId": 4,
+      "climbId": 5,
+      "validated": true,
+      "flagged": false,
+      "notes": "",
+      "id": 12
     }
   ],
   "competitionLeaderboard": [
