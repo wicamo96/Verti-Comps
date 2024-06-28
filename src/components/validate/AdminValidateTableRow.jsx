@@ -2,13 +2,14 @@ import { useEffect, useState } from "react"
 import "./Validate.css"
 import { Button } from "reactstrap"
 import { useNavigate } from "react-router-dom"
-import { editUserAscent, getCompetitionPoints, updateCompetitionPoints } from "../../services/UserServices.jsx"
+import { editUserAscent, getCompetitionPoints, getCompetitorObjOnly, updateCompetitionPoints, updateCompetitorLeaguePoints } from "../../services/UserServices.jsx"
 
 export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userObj, competition }) => {
     const [flagged, setFlagged] = useState(ascent.flagged)
     const [validated, setValidated] = useState(ascent.validated)
     const [registrationObj, setRegistrationObj] = useState({})
     const [climb, setClimb] = useState({})
+    const [isInitial, setIsInitial] = useState(true)
 
     const navigate = useNavigate()
 
@@ -29,20 +30,47 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
     }, [validated, flagged])
 
     useEffect(() => {
-        if (validated) {
-            getCompetitionPoints(registrationObj).then(regObj => {
-                regObj.competitionPoints += climb.points
-                updateCompetitionPoints(regObj)
-            })
+        if (isInitial) {
+            return
         } else {
-            getCompetitionPoints(registrationObj).then(regObj => {
-                regObj.competitionPoints -= climb.points
-                if (regObj.competitionPoints < 0) {
-                    return
-                } else {
+            if (validated) {
+                getCompetitorObjOnly(userObj.id).then(compObj => {
+                    compObj.leaguePoints += climb.points
+                    updateCompetitorLeaguePoints(compObj)
+                })
+            } else if (flagged) {
+                getCompetitorObjOnly(userObj.id).then(compObj => {
+                    compObj.leaguePoints -= climb.points
+                    
+                    if (compObj.competitionPoints < 0) {
+                        return
+                    } else {
+                        updateCompetitorLeaguePoints(compObj)
+                    }
+                })
+            }
+        }
+    }, [validated, flagged, climb])
+
+    useEffect(() => {
+        if (isInitial) {
+            return
+        } else {
+            if (validated) {
+                getCompetitionPoints(registrationObj).then(regObj => {
+                    regObj.competitionPoints += climb.points
                     updateCompetitionPoints(regObj)
-                }
-            })
+                })
+            } else {
+                getCompetitionPoints(registrationObj).then(regObj => {
+                    regObj.competitionPoints -= climb.points
+                    if (regObj.competitionPoints < 0) {
+                        return
+                    } else {
+                        updateCompetitionPoints(regObj)
+                    }
+                })
+            }
         }
     }, [validated, flagged])
 
@@ -64,11 +92,14 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
 
             setFlagged(!bool)
 
-            
+            setIsInitial(false)
+          
         } else {
             setValidated(bool)
 
             setFlagged(!bool)
+
+            setIsInitial(false)
         }
     }
 

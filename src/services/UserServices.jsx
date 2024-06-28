@@ -76,3 +76,17 @@ export const updateCompetitionPoints = (pointsObj) => {
         body: JSON.stringify(pointsObj)
     })
 }
+
+export const getCompetitorObjOnly = (competitorId) => {
+    return fetch(`http://localhost:8088/users/${competitorId}`).then(res => res.json())
+}
+
+export const updateCompetitorLeaguePoints = (competitorObj) => {
+    return fetch(`http://localhost:8088/users/${competitorObj.id}`, {
+        method: "PUT",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(competitorObj)
+    })
+}
