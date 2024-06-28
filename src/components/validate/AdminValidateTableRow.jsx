@@ -31,17 +31,17 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
     useEffect(() => {
         if (validated) {
             getCompetitionPoints(registrationObj).then(regObj => {
-                console.log(regObj)
                 regObj.competitionPoints += climb.points
-                console.log(regObj)
                 updateCompetitionPoints(regObj)
             })
         } else {
             getCompetitionPoints(registrationObj).then(regObj => {
-                console.log(regObj)
                 regObj.competitionPoints -= climb.points
-                console.log(regObj)
-                updateCompetitionPoints(regObj)
+                if (regObj.competitionPoints < 0) {
+                    return
+                } else {
+                    updateCompetitionPoints(regObj)
+                }
             })
         }
     }, [validated, flagged])
