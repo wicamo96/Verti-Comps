@@ -42,7 +42,7 @@ export const LeagueLeaderboard = ({ currentUser }) => {
             <tbody>
             {leaderboardList.map(competitor => {
                 return (
-                    <tr className={competitor.userId === currentUser.id ? "grayBackground" : ""}>
+                    <tr className={competitor.userId === currentUser?.id ? "grayBackground" : ""}>
                         <th scope="row">
                             {competitor.id}
                         </th>
