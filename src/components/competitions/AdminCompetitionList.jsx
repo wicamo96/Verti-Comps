@@ -23,20 +23,20 @@ export const AdminCompetitionList = ({ currentUser }) => {
 
     return (
         <article className="wider">
-            <h2 className="margin">Compeititons</h2>
+            <h2 className="margin textDark">Compeititons</h2>
             <Table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="textDark">
                             Name
                         </th>
-                        <th>
+                        <th className="textDark">
                             Date
                         </th>
-                        <th>
+                        <th className="textDark">
                             Location
                         </th>
-                        <th>
+                        <th className="textDark">
                             Registration
                         </th>
                         <th>
@@ -51,13 +51,13 @@ export const AdminCompetitionList = ({ currentUser }) => {
                     {competitionList.map(competition => {
                         return (
                             <tr key={competition.id}>
-                                <th scope="row">
+                                <th scope="row" className="textDark">
                                     {competition.name}
                                 </th>
-                                <td>
+                                <td className="textDark">
                                     {formattedDate(competition.date)}
                                 </td>
-                                <td>
+                                <td className="textDark">
                                     {competition.location}
                                 </td>
                                 <td>
@@ -67,7 +67,7 @@ export const AdminCompetitionList = ({ currentUser }) => {
                                 </td>
                                 <td>
                                     {competition.userId === currentUser.id ? 
-                                        <Button onClick={() => navigate("/competitions/edit", { state: { competition: competition } })}>
+                                        <Button className="btn-color btn-lt-txt" onClick={() => navigate("/competitions/edit", { state: { competition: competition } })}>
                                             Edit
                                         </Button>
                                         :
@@ -76,7 +76,7 @@ export const AdminCompetitionList = ({ currentUser }) => {
                                 </td>
                                 <td>
                                     {competition.userId === currentUser.id ? 
-                                        <Button onClick={() => deleteCompetition(competition)}>
+                                        <Button className="btn-color btn-lt-txt" onClick={() => deleteCompetition(competition)}>
                                             Delete
                                         </Button>
                                         :

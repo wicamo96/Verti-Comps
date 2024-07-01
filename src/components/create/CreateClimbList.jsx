@@ -51,12 +51,12 @@ export const CreateClimbList = ({ currentUser }) => {
 
     return (
         <article className="widerContainer">
-            <h2>Enter Climbs For the {newComp?.name} competition</h2>
+            <h2 className="margin textDark">Enter Climbs For {newComp?.name}</h2>
             <ul>
                 <li className="rows">
-                    <div><h4>Name</h4></div>
-                    <div><h4>Description</h4></div>
-                    <div><h4>Points</h4></div>
+                    <div><h4 className="textDark">Name</h4></div>
+                    <div><h4 className="textDark">Description</h4></div>
+                    <div><h4 className="textDark">Points</h4></div>
                 </li>
                 {counterArray.map(number => {
                     return (
@@ -64,14 +64,14 @@ export const CreateClimbList = ({ currentUser }) => {
                     )
                 })}
                 <div>
-                    <button className="margin" onClick={() => iterateCounter()}>
+                    <button className="margin btn-color btn-lt-txt" onClick={() => iterateCounter()}>
                         Add
                     </button>
-                    <button className="margin" onClick={() => subtractCounter()}>
-                        Subtract
+                    <button className="margin btn-color btn-lt-txt" onClick={() => subtractCounter()}>
+                        Remove
                     </button>
                 </div>
-                <button onClick={() => setSubmit(true)}>
+                <button className="btn-color btn-lt-txt" onClick={() => setSubmit(true)}>
                     Submit
                 </button>
             </ul>

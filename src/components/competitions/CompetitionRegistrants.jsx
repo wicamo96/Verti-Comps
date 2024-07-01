@@ -44,11 +44,11 @@ export const CompetitionRegistrants = () => {
 
     return (
         <article className="wider">
-            <h2 className="margin">{state.competition.name} Registration List</h2>
+            <h2 className="margin textDark">{state.competition.name} Registration List</h2>
             <Table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="textDark">
                             Name
                         </th>
                         <th>
@@ -60,11 +60,11 @@ export const CompetitionRegistrants = () => {
                     {filteredCompetitorList.map(competitor => {
                         return (
                             <tr key={competitor.id}>
-                                <th scope="row">
+                                <th scope="row" className="textDark">
                                     {competitor.name}
                                 </th>
                                 <td>
-                                    <Button onClick={() => handleDeregistration(competitor)}>
+                                    <Button className="btn-color btn-lt-txt" onClick={() => handleDeregistration(competitor)}>
                                         Deregister
                                     </Button>
                                 </td>

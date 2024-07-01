@@ -32,22 +32,22 @@ export const CompetitorCompListRow = ({ currentUser, competition, formattedDate,
 
     return (
         <tr key={competition.id}>
-            <th scope="row">
+            <th scope="row" className="textDark">
                 {competition.name}
             </th>
-            <td>
+            <td className="textDark">
                 {formattedDate(competition.date)}
             </td>
-            <td>
+            <td className="textDark">
                 {competition.location}
             </td>
             <td>
                 {competitionRegistrationStatus?.id ?
-                <Button color="primary" onClick={() => handleDeregistration()}>
+                <Button className="btn-color btn-lt-txt" color="primary" onClick={() => handleDeregistration()}>
                     Deregister
                 </Button>
                 :
-                <Button color="primary" onClick={() => handleRegistration()}>
+                <Button className="btn-color btn-lt-txt" color="primary" onClick={() => handleRegistration()}>
                     Register
                 </Button>
                 }

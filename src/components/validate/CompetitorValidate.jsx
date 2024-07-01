@@ -28,15 +28,15 @@ export const CompetitorValidate = ({ currentUser }) => {
     return (
         <article className="validateContainer">
             <header className="margin">
-                <h1>Validate Ascents</h1>
+                <h1 className="textDark">Scorecard</h1>
             </header>
             <div className="d-flex p-5 spaceEvenly">
                 <Dropdown isOpen={competitionDropdownOpen} toggle={toggleCompetition} >
-                    <DropdownToggle caret>Select Competition</DropdownToggle>
+                    <DropdownToggle className="dropdownColor" caret>Select Competition</DropdownToggle>
                     <DropdownMenu>
                         {competitionList.map(competition => {
                             return (
-                                <DropdownItem key={competition.id} onClick={() => setCompetition(competition)}>{competition.name}</DropdownItem>
+                                <DropdownItem className="textDark" key={competition.id} onClick={() => setCompetition(competition)}>{competition.name}</DropdownItem>
                                 )
                         })}
                     </DropdownMenu>
@@ -45,16 +45,16 @@ export const CompetitorValidate = ({ currentUser }) => {
             <Table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="textDark">
                             Name
                         </th>
-                        <th>
+                        <th className="textDark">
                             Points
                         </th>
-                        <th>
+                        <th className="textDark">
                             Climbed
                         </th>
-                        <th>
+                        <th className="textDark">
                             Notes
                         </th>
                     </tr>

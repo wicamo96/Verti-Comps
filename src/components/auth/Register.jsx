@@ -2,6 +2,7 @@ import { useState } from "react"
 import { Link, useNavigate } from "react-router-dom"
 import "./Login.css"
 import { createUser, getUserInfoByEmail } from "../../services/UserServices.jsx"
+import { Card, CardTitle } from "reactstrap"
 
 export const Register = (props) => {
   const [passwordCheck, setPasswordCheck] = useState('')
@@ -44,86 +45,90 @@ export const Register = (props) => {
   }
 
   return (
-    <main style={{ textAlign: "center" }}>
-      <form className="form-login" onSubmit={handleRegister}>
-        <h1>Verti Comps</h1>
-        <h2>Please Register</h2>
-        <fieldset>
-          <div className="form-group">
-            <input
-              onChange={updateUser}
-              type="text"
-              id="name"
-              className="form-control"
-              placeholder="Enter your name"
-              required
-              autoFocus
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <input
-              onChange={updateUser}
-              type="email"
-              id="email"
-              className="form-control"
-              placeholder="Email address"
-              required
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <input
-              onChange={(event) => {setPasswordCheck(event.target.value)}}
-              type="password"
-              id="passwordCheck"
-              className="form-control"
-              placeholder="Password"
-              required
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <input
-              onChange={updateUser}
-              type="password"
-              id="password"
-              className="form-control"
-              placeholder="Re-Enter Password"
-              required
-            />
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <label>
+    <main className="container-login">
+      <h1 className="textDark">Verti Comps</h1>
+      <section>
+        <form className="form-login" onSubmit={handleRegister}>
+          <Card className="card">
+          <CardTitle><h2 className="margin textDark">Please Register</h2></CardTitle>
+          <fieldset className="marginSides">
+            <div className="form-group">
               <input
-                onChange={(evt) => {
-                  const copy = { ...user }
-                  copy.isStaff = evt.target.checked
-                  setUser(copy)
-                }}
-                type="checkbox"
-                id="isStaff"
+                onChange={updateUser}
+                type="text"
+                id="name"
+                className="form-control"
+                placeholder="Enter your name"
+                required
+                autoFocus
               />
-              I am an administrator{" "}
-            </label>
-          </div>
-        </fieldset>
-        <fieldset>
-          <div className="form-group">
-            <button className="login-btn btn-info" type="submit">
-              Register
-            </button>
-          </div>
-        </fieldset>
-        <section>
-          <Link to="/login">Already A Member?</Link>
-        </section>
-      </form>
+            </div>
+          </fieldset>
+          <fieldset className="margin">
+            <div className="form-group">
+              <input
+                onChange={updateUser}
+                type="email"
+                id="email"
+                className="form-control"
+                placeholder="Email address"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset className="marginSides">
+            <div className="form-group">
+              <input
+                onChange={(event) => {setPasswordCheck(event.target.value)}}
+                type="password"
+                id="passwordCheck"
+                className="form-control"
+                placeholder="Password"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset className="margin">
+            <div className="form-group">
+              <input
+                onChange={updateUser}
+                type="password"
+                id="password"
+                className="form-control"
+                placeholder="Re-Enter Password"
+                required
+              />
+            </div>
+          </fieldset>
+          <fieldset className="margin">
+            <div className="form-group">
+              <label className="textDark">
+                <input
+                  onChange={(evt) => {
+                    const copy = { ...user }
+                    copy.isStaff = evt.target.checked
+                    setUser(copy)
+                  }}
+                  type="checkbox"
+                  id="isStaff"
+                />
+                I am an administrator{" "}
+              </label>
+            </div>
+          </fieldset>
+          <fieldset>
+            <div className="form-group">
+              <button className="login-btn btn-color" type="submit">
+                Register
+              </button>
+            </div>
+          </fieldset>
+          </Card>
+        </form>
+      </section>
+      <section>
+        <Link to="/login" className="margin textDark">Already A Member?</Link>
+      </section>
     </main>
   )
 }

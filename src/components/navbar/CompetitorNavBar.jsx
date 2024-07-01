@@ -6,23 +6,25 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import "./NavBar.css"
 
 export const CompetitorNavBar = () => {
     return (
-        <Navbar container="fluid">
-            <NavbarBrand href="/">Verti Comps</NavbarBrand>
+        <Navbar className='navColor' container="fluid">
+            <NavbarBrand className='textColor' href="/">Verti Comps</NavbarBrand>
               <Nav className="gap-x">
                 <NavItem>
-                  <NavLink href="/validate">Validate</NavLink>
+                  <NavLink className='textColor' href="/validate">Scorecard</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/competitions">Competitions</NavLink>
+                  <NavLink className='textColor' href="/competitions">Competitions</NavLink>
                 </NavItem>
                 <NavItem>
-                  <NavLink href="/leagueLeaderboard">League Leaderboard</NavLink>
+                  <NavLink className='textColor' href="/leagueLeaderboard">League Leaderboard</NavLink>
                 </NavItem>
                 <NavItem>
-                    <NavLink 
+                    <NavLink
+                        className='textColor' 
                         href='/login'
                         onClick={() => {
                             localStorage.removeItem("verti_user")

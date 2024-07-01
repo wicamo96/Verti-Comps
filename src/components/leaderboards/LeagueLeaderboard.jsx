@@ -25,37 +25,40 @@ export const LeagueLeaderboard = ({ currentUser }) => {
     }, [leaderboardList])
 
     return (
-        <Table>
-            <thead>
-                <tr>
-                    <th>
-                        #
-                    </th>
-                    <th>
-                        Name
-                    </th>
-                    <th>
-                        Point Total
-                    </th>
-                </tr>
-            </thead>
-            <tbody>
-            {leaderboardList.map(competitor => {
-                return (
-                    <tr className={competitor.userId === currentUser?.id ? "grayBackground" : ""}>
-                        <th scope="row">
-                            {competitor.id}
+        <>
+            <h3 className="margin textDark">Leaderboard</h3>
+            <Table>
+                <thead>
+                    <tr>
+                        <th className="textDark">
+                            #
                         </th>
-                        <td>
-                            {competitor.user.name}
-                        </td>
-                        <td>
-                            {competitor.user.leaguePoints}
-                        </td>
+                        <th className="textDark">
+                            Name
+                        </th>
+                        <th className="textDark">
+                            Point Total
+                        </th>
                     </tr>
-                )
-            })}
-            </tbody>
-        </Table>
+                </thead>
+                <tbody>
+                {leaderboardList.map(competitor => {
+                    return (
+                        <tr className={competitor.userId === currentUser?.id ? "grayBackground" : ""}>
+                            <th scope="row" className="textDark">
+                                {competitor.id}
+                            </th>
+                            <td className="textDark">
+                                {competitor.user.name}
+                            </td>
+                            <td className="textDark">
+                                {competitor.user.leaguePoints}
+                            </td>
+                        </tr>
+                    )
+                })}
+                </tbody>
+            </Table>
+        </>
     )
 }

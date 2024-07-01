@@ -1,5 +1,5 @@
 import { useLocation, useNavigate } from "react-router-dom"
-import { Button } from "reactstrap"
+import { Button, Card } from "reactstrap"
 import "./Validate.css"
 import { useState } from "react"
 import { editUserAscent } from "../../services/UserServices.jsx"
@@ -39,27 +39,29 @@ export const AdminValidateNote = () => {
     
 
     return (
-        <article>
-            <h2>Add Note</h2>
-            <input 
-                type="text"
-                size="50"
-                placeholder="Add Note About Selected Climb"
-                defaultValue={state.climb.notes}
-                onChange={
-                    (event) => 
-                    setNote(event.target.value)
-                }
-                className="form-control"
-            ></input>
-            <div className="buttonGroup">
-                <Button onClick={() => handleAddedNote()}>
-                    Add Note
-                </Button>
-                <Button onClick={() => handleDeleteNote()}>
-                    Delete Note
-                </Button>
-            </div>
+        <article className="noteBody">
+            <Card className="card">
+                <h2 className="textDark">Add Note</h2>
+                <input 
+                    type="text"
+                    size="50"
+                    placeholder="Add Note About Selected Climb"
+                    defaultValue={state.climb.notes}
+                    onChange={
+                        (event) => 
+                        setNote(event.target.value)
+                    }
+                    className="form-control margin"
+                ></input>
+                <div className="buttonGroup">
+                    <Button className="btn-color" onClick={() => handleAddedNote()}>
+                        Add Note
+                    </Button>
+                    <Button className="btn-color" onClick={() => handleDeleteNote()}>
+                        Delete Note
+                    </Button>
+                </div>
+            </Card>
         </article>
     )
 }

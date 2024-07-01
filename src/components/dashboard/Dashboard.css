@@ -1,7 +1,6 @@
 .competitionContainer {
     width: 40%;
     height: 70vh;
-    border: solid ;
     padding: 1em;
 }
 
@@ -16,8 +15,8 @@
 .leaderboardContainer {
     width: 60%;
     height: 70vh;
-    border: solid ;
     padding: 1em;
+    min-height: 70vh;
 }
 
 .grayBackground {

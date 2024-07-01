@@ -94,11 +94,11 @@ export const AdminValidate = () => {
     return (
         <article className="validateContainer">
             <header className="margin">
-                <h1>Validate Ascents</h1>
+                <h2 className="textDark">Validate Competitor Scorecards</h2>
             </header>
-            <div className="d-flex p-5 spaceEvenly">
+            <div className="d-flex p-5 spaceEvenly ">
                 <Dropdown isOpen={competitionDropdownOpen} toggle={toggleCompetition} >
-                    <DropdownToggle caret>Select Competition</DropdownToggle>
+                    <DropdownToggle className="dropdownColor" caret>Select Competition</DropdownToggle>
                     <DropdownMenu>
                         {competitionList.map(competition => {
                             const find = competitionsViaLeaderboard.find(obj => obj.id === competition.id)
@@ -110,7 +110,7 @@ export const AdminValidate = () => {
                     </DropdownMenu>
                 </Dropdown>
                 <Dropdown isOpen={competitorDropdownOpen} toggle={toggleCompetitor} >
-                    <DropdownToggle caret>Select Competitor</DropdownToggle>
+                    <DropdownToggle className="dropdownColor" caret>Select Competitor</DropdownToggle>
                     <DropdownMenu>
                         {filteredCompetitorList.map(competitor => {
                             return (
@@ -120,26 +120,26 @@ export const AdminValidate = () => {
                     </DropdownMenu>
                 </Dropdown>
             </div>
-                {!competitor.id ? "" : <header><h2>{competitor.name}'s Climb List</h2></header>}
+                {!competitor.id ? "" : <header><h2 className="textDark">{competitor.name}'s Climb List</h2></header>}
             <Table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="textDark">
                             #
                         </th>
-                        <th>
+                        <th className="textDark">
                             Name
                         </th>
-                        <th>
+                        <th className="textDark">
                             Points
                         </th>
-                        <th>
+                        <th className="textDark">
                             Validate
                         </th>
-                        <th>
+                        <th className="textDark">
                             Flag
                         </th>
-                        <th>
+                        <th className="textDark">
                             Notes
                         </th>
                     </tr>

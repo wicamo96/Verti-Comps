@@ -6,22 +6,23 @@ import {
   NavItem,
   NavLink,
 } from 'reactstrap';
+import "./NavBar.css"
 
 export const NavBar = () => {
 
 
   return (
-    <Navbar container="fluid">
-        <NavbarBrand href="/">Verti Comps</NavbarBrand>
+    <Navbar className="navColor" container="fluid">
+        <NavbarBrand className='textColor' href="/">Verti Comps</NavbarBrand>
           <Nav className="gap-x">
             <NavItem>
-              <NavLink href="/login">Login</NavLink>
+              <NavLink className='textColor' href="/login">Login</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/register">Register</NavLink>
+              <NavLink className='textColor' href="/register">Register</NavLink>
             </NavItem>
             <NavItem>
-              <NavLink href="/leagueLeaderboard">League Leaderboard</NavLink>
+              <NavLink className='textColor' href="/leagueLeaderboard">League Leaderboard</NavLink>
             </NavItem>
           </Nav>
       </Navbar>
