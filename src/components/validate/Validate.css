@@ -4,17 +4,7 @@
     margin: 1em;
 }
 
-.dropdownColor {
-    background-color: var(--col-4);
-    border: var(--col-4);
-    color: var(--col-3);
-}
 
-.dropdownColor:hover {
-    background-color: var(--col-5);
-    border: var(--col-4);
-    color: var(--col-3);
-}
 
 .noteBody {
     display: flex;

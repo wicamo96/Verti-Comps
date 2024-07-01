@@ -94,7 +94,7 @@ export const AdminValidate = () => {
     return (
         <article className="validateContainer">
             <header className="margin">
-                <h2 className="textDark">Validate Ascents</h2>
+                <h2 className="textDark">Validate Competitor Scorecards</h2>
             </header>
             <div className="d-flex p-5 spaceEvenly ">
                 <Dropdown isOpen={competitionDropdownOpen} toggle={toggleCompetition} >
@@ -120,7 +120,7 @@ export const AdminValidate = () => {
                     </DropdownMenu>
                 </Dropdown>
             </div>
-                {!competitor.id ? "" : <header><h2>{competitor.name}'s Climb List</h2></header>}
+                {!competitor.id ? "" : <header><h2 className="textDark">{competitor.name}'s Climb List</h2></header>}
             <Table>
                 <thead>
                     <tr>

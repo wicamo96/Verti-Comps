@@ -37,20 +37,20 @@ export const CompetitorCompetitionList = ({ currentUser }) => {
 
     return (
         <article className="wider">
-            <h2 className="margin">Competitions</h2>
+            <h2 className="margin textDark">Competitions</h2>
             <Table>
                 <thead>
                     <tr>
-                        <th>
+                        <th className="textDark">
                             Name
                         </th>
-                        <th>
+                        <th className="textDark">
                             Date
                         </th>
-                        <th>
+                        <th className="textDark">
                             Location
                         </th>
-                        <th>
+                        <th className="textDark">
                             Registration
                         </th>
                         <th>

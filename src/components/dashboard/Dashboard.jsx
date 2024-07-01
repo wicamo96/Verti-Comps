@@ -1,5 +1,5 @@
 import { useEffect, useState } from "react"
-import { Table } from "reactstrap"
+import { Card, Table } from "reactstrap"
 import { getLeagueLeaderboard } from "../../services/LeaderboardServices.jsx"
 import "./Dashboard.css"
 import { getCompetitionList } from "../../services/CompetitionServices.jsx"
@@ -43,74 +43,78 @@ export const Dashboard = ({ currentUser }) => {
             <h3 className="margin textDark">Dashboard</h3>
             <section className="dashboardContainer">
                 <article className="leaderboardContainer">
-                    <h2>Leaderboard</h2>
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    #
-                                </th>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Point Total
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                        {leaderboardList.map(competitor => {
-                            return (
-                                <tr className={competitor.userId === currentUser.id ? "grayBackground" : ""} key={competitor.id}>
-                                    <th scope="row">
-                                        {competitor.id}
+                    <Card>
+                        <h2>League Leaderboard</h2>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        #
                                     </th>
-                                    <td>
-                                        {competitor.user.name}
-                                    </td>
-                                    <td>
-                                        {competitor.user.leaguePoints}
-                                    </td>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Point Total
+                                    </th>
                                 </tr>
-                            )
-                        })}
-                        </tbody>
-                    </Table>
-                </article>
-                <article className="competitionContainer">
-                    <h2 className="margin">Competitions</h2>
-                    <Table>
-                        <thead>
-                            <tr>
-                                <th>
-                                    Name
-                                </th>
-                                <th>
-                                    Date
-                                </th>
-                                <th>
-                                    Location
-                                </th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            {competitionList.map(competition => {
+                            </thead>
+                            <tbody>
+                            {leaderboardList.map(competitor => {
                                 return (
-                                    <tr key={competition.id}>
+                                    <tr className={competitor.userId === currentUser.id ? "grayBackground" : ""} key={competitor.id}>
                                         <th scope="row">
-                                            {competition.name}
+                                            {competitor.id}
                                         </th>
                                         <td>
-                                            {formattedDate(competition.date)}
+                                            {competitor.user.name}
                                         </td>
                                         <td>
-                                            {competition.location}
+                                            {competitor.user.leaguePoints}
                                         </td>
                                     </tr>
                                 )
                             })}
-                        </tbody>
-                    </Table>
+                            </tbody>
+                        </Table>
+                    </Card>
+                </article>
+                <article className="competitionContainer">
+                    <Card>
+                        <h2 className="margin">Competitions</h2>
+                        <Table>
+                            <thead>
+                                <tr>
+                                    <th>
+                                        Name
+                                    </th>
+                                    <th>
+                                        Date
+                                    </th>
+                                    <th>
+                                        Location
+                                    </th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {competitionList.map(competition => {
+                                    return (
+                                        <tr key={competition.id}>
+                                            <th scope="row">
+                                                {competition.name}
+                                            </th>
+                                            <td>
+                                                {formattedDate(competition.date)}
+                                            </td>
+                                            <td>
+                                                {competition.location}
+                                            </td>
+                                        </tr>
+                                    )
+                                })}
+                            </tbody>
+                        </Table>
+                    </Card>
                 </article>
             </section>
         </>

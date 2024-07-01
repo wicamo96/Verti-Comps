@@ -44,10 +44,10 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
 
     return (
         <tr key={climb.id}>
-            <td scope="row">
+            <td className="textDark" scope="row">
                 {climb.name}
             </td>
-            <td>
+            <td className="textDark">
                 {climb.points}
             </td>
             <td>

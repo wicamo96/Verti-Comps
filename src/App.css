@@ -10,6 +10,22 @@
   color: var(--col-3);
 }
 
+.btn-lt-txt {
+  color: var(--col-2);
+}
+
+.dropdownColor {
+  background-color: var(--col-4);
+  border: var(--col-4);
+  color: var(--col-2);
+}
+
+.dropdownColor:hover {
+  background-color: var(--col-5);
+  border: var(--col-4);
+  color: var(--col-3);
+}
+
 #root {
   width: 100vw;
   margin: 0;

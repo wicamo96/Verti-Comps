@@ -14,7 +14,7 @@ export const CompetitorNavBar = () => {
             <NavbarBrand className='textColor' href="/">Verti Comps</NavbarBrand>
               <Nav className="gap-x">
                 <NavItem>
-                  <NavLink className='textColor' href="/validate">Validate</NavLink>
+                  <NavLink className='textColor' href="/validate">Scorecard</NavLink>
                 </NavItem>
                 <NavItem>
                   <NavLink className='textColor' href="/competitions">Competitions</NavLink>

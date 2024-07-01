@@ -250,10 +250,10 @@
       "competitionPoints": 0
     },
     {
-      "id": 12,
       "userId": 2,
       "competitionId": 3,
-      "competitionPoints": 0
+      "competitionPoints": 0,
+      "id": 12
     }
   ],
   "competitorAscents": [
