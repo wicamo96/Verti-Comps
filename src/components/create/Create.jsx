@@ -11,6 +11,7 @@ export const Create = ({ currentUser }) => {
 
     const handleCompetitionSubmit = () => {
         const copy = {...competitionInfo}
+        copy.inProgress = false
         copy.userId = currentUser.id
         postNewCompetition(copy)
         navigate('/create/climbList')

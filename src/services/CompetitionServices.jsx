@@ -35,3 +35,7 @@ export const deleteCompetition = (competitionObj) => {
         method: "DELETE"
     })
 }
+
+export const getRegistrantsByCompId = (competitionObj) => {
+    return fetch(`http://localhost:8088/competitionRegistrants?competitionId=${competitionObj.id}`).then(res => res.json())
+}

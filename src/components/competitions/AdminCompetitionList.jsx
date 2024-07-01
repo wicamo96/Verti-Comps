@@ -4,6 +4,7 @@ import { deleteCompetition, getCompetitionList } from "../../services/Competitio
 import { Button, Table } from "reactstrap"
 import "./Competitions.css"
 import { useNavigate } from "react-router-dom"
+import { AdminCompetitionListRow } from "./AdminCompetitionListRow.jsx"
 
 export const AdminCompetitionList = ({ currentUser }) => {
     const [competitionList, setCompetitionList] = useState([])
@@ -27,6 +28,9 @@ export const AdminCompetitionList = ({ currentUser }) => {
             <Table>
                 <thead>
                     <tr>
+                        <th>
+                            
+                        </th>
                         <th className="textDark">
                             Name
                         </th>
@@ -50,40 +54,7 @@ export const AdminCompetitionList = ({ currentUser }) => {
                 <tbody>
                     {competitionList.map(competition => {
                         return (
-                            <tr key={competition.id}>
-                                <th scope="row" className="textDark">
-                                    {competition.name}
-                                </th>
-                                <td className="textDark">
-                                    {formattedDate(competition.date)}
-                                </td>
-                                <td className="textDark">
-                                    {competition.location}
-                                </td>
-                                <td>
-                                    <Button color="link" onClick={() => navigate("/competitions/registration", { state: { competition: competition } })}>
-                                        View And Edit
-                                    </Button>
-                                </td>
-                                <td>
-                                    {competition.userId === currentUser.id ? 
-                                        <Button className="btn-color btn-lt-txt" onClick={() => navigate("/competitions/edit", { state: { competition: competition } })}>
-                                            Edit
-                                        </Button>
-                                        :
-                                        ""
-                                    }
-                                </td>
-                                <td>
-                                    {competition.userId === currentUser.id ? 
-                                        <Button className="btn-color btn-lt-txt" onClick={() => deleteCompetition(competition)}>
-                                            Delete
-                                        </Button>
-                                        :
-                                        ""
-                                    }
-                                </td>
-                            </tr>
+                            <AdminCompetitionListRow competition={competition} key={competition.id} currentUser={currentUser} competitionList={competitionList} navigate={navigate} formattedDate={formattedDate} />
                         )
                     })}
                 </tbody>
