@@ -304,6 +304,7 @@
       "id": 1,
       "userId": 2,
       "climbId": 1,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": ""
@@ -311,6 +312,7 @@
     {
       "userId": 2,
       "climbId": 2,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -319,6 +321,7 @@
     {
       "userId": 2,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -327,6 +330,7 @@
     {
       "userId": 2,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -335,6 +339,7 @@
     {
       "userId": 2,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -343,6 +348,7 @@
     {
       "userId": 3,
       "climbId": 1,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -351,6 +357,7 @@
     {
       "userId": 3,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -359,6 +366,7 @@
     {
       "userId": 3,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -367,6 +375,7 @@
     {
       "userId": 3,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -375,6 +384,7 @@
     {
       "userId": 4,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -383,6 +393,7 @@
     {
       "userId": 4,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -391,6 +402,7 @@
     {
       "userId": 4,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -399,6 +411,7 @@
     {
       "userId": 2,
       "climbId": 6,
+      "competitionId": 2,
       "validated": false,
       "flagged": false,
       "notes": "",
@@ -407,6 +420,7 @@
     {
       "userId": 2,
       "climbId": 7,
+      "competitionId": 2,
       "validated": false,
       "flagged": false,
       "notes": "",
@@ -415,6 +429,7 @@
     {
       "userId": 2,
       "climbId": 8,
+      "competitionId": 2,
       "validated": false,
       "flagged": false,
       "notes": "",
@@ -423,6 +438,7 @@
     {
       "userId": 2,
       "climbId": 9,
+      "competitionId": 2,
       "validated": false,
       "flagged": false,
       "notes": "",
@@ -431,6 +447,7 @@
     {
       "userId": 2,
       "climbId": 10,
+      "competitionId": 2,
       "validated": false,
       "flagged": false,
       "notes": "",

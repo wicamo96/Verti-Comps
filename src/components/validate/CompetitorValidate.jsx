@@ -73,7 +73,7 @@ export const CompetitorValidate = ({ currentUser }) => {
                 <tbody>
                     {competitionClimbList.map(climb => {
                         return (
-                            <CompetitorValidateTableRow currentUser={currentUser} climb={climb} key={climb.id}/>
+                            <CompetitorValidateTableRow currentUser={currentUser} climb={climb} key={climb.id} competition={competition} />
                         )
                     })}
                 </tbody>
