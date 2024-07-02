@@ -8,6 +8,7 @@ export const CompetitorValidate = ({ currentUser }) => {
     const [competition, setCompetition] = useState({})
     const [competitionClimbList, setCompetitionClimbList] = useState([])
     const [competitionDropdownOpen, setCompetitionDropdownOpen] = useState(false)
+    const [filterCompetitionList, setFilterCompetitionList] = useState([])
 
     const toggleCompetition = () => setCompetitionDropdownOpen((prevState) => !prevState);
 
@@ -25,6 +26,16 @@ export const CompetitorValidate = ({ currentUser }) => {
         })
     }, [competition])
 
+    useEffect(() => {
+        const arr = []
+        for (const competition of competitionList) {
+            if (competition.hasStarted) {
+                arr.push(competition)
+            }
+        }
+        setFilterCompetitionList(arr)
+    }, [competitionList])
+
     return (
         <article className="validateContainer">
             <header className="margin">
@@ -34,10 +45,10 @@ export const CompetitorValidate = ({ currentUser }) => {
                 <Dropdown isOpen={competitionDropdownOpen} toggle={toggleCompetition} >
                     <DropdownToggle className="dropdownColor" caret>Select Competition</DropdownToggle>
                     <DropdownMenu>
-                        {competitionList.map(competition => {
+                        {filterCompetitionList.map(competition => {
                             return (
-                                <DropdownItem className="textDark" key={competition.id} onClick={() => setCompetition(competition)}>{competition.name}</DropdownItem>
-                                )
+                                <DropdownItem className="textDark" key={competition.id} onClick={() => setCompetition(competition)}>{competition.name}</DropdownItem> 
+                            )   
                         })}
                     </DropdownMenu>
                 </Dropdown>

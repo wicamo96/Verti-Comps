@@ -26,6 +26,10 @@
   color: var(--col-3);
 }
 
+.grayBackground {
+  background-color: lightgray;
+}
+
 #root {
   width: 100vw;
   margin: 0;
