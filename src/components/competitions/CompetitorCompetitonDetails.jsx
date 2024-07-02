@@ -38,7 +38,7 @@ export const CompetitorCompetitionDetails = ({ currentUser }) => {
 
     return (
         <>
-            <h2 className="textDark margin">{state.competition.name} Details</h2>
+            <h2 className="textDark margin">{state.competition.name} Leaderboard</h2>
             <Table className="margin">
                 <thead>
                     <tr>
