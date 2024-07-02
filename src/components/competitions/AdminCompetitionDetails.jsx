@@ -8,6 +8,7 @@ export const AdminCompetitionDetails = () => {
     const [competitionRegistration, setCompetitionRegistration] = useState([])
     const [competitionLeaderboard, setCompetitionLeaderboard] = useState([])
     const [competitionLeaderboardAndNames, setCompetitionLeaderboardAndNames] = useState([])
+    const [rankArr, setRankArr] = useState([])
 
     const navigate = useNavigate()
 
@@ -24,10 +25,13 @@ export const AdminCompetitionDetails = () => {
 
     useEffect(() => {
         const arr = []
+        let counter = 1
         for (const item of competitionLeaderboard) {
             const userObj = state.leagueLeaderboard.find(entry => entry.userId === item.userId)
             item.name = userObj?.user.name
+            item.rank = counter
             arr.push(item)
+            counter++
         }
         setCompetitionLeaderboardAndNames(arr)
     }, [competitionLeaderboard])
@@ -111,7 +115,7 @@ export const AdminCompetitionDetails = () => {
                         return (
                             <tr key={obj.id}>
                                 <th className="textDark">
-                                    {obj.id}
+                                    {obj.rank}
                                 </th>
                                 <th className="textDark">
                                     {obj.name}
