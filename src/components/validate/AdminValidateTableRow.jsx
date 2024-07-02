@@ -14,19 +14,21 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
     const navigate = useNavigate()
 
     useEffect(() => {
-        if (validated) {
+        if (!isInitial) {
+            if (validated) {
+                const copyAscent = {...ascent}
+                copyAscent.validated = validated
+                copyAscent.flagged = flagged
+                editUserAscent(copyAscent)
+
+            } else {
             const copyAscent = {...ascent}
-            copyAscent.validated = validated
-            copyAscent.flagged = flagged
-            editUserAscent(copyAscent)
+                copyAscent.validated = validated
+                copyAscent.flagged = flagged
+                editUserAscent(copyAscent)
 
-        } else {
-        const copyAscent = {...ascent}
-            copyAscent.validated = validated
-            copyAscent.flagged = flagged
-            editUserAscent(copyAscent)
-
-        }
+            }
+        }   
     }, [validated, flagged])
 
     useEffect(() => {

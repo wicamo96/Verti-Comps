@@ -20,8 +20,7 @@ export const AdminValidateNote = () => {
             flagged: true,
             notes: note
         }
-        editUserAscent(newAscentObj)
-        navigate("/validate")
+        editUserAscent(newAscentObj).then(navigate("/validate"))
     }
 
     const handleDeleteNote = () => {
@@ -33,8 +32,7 @@ export const AdminValidateNote = () => {
             flagged: false,
             notes: ""
         }
-        editUserAscent(newAscentObj)
-        navigate("/validate")
+        editUserAscent(newAscentObj).then(navigate("/validate"))
     }
     
 

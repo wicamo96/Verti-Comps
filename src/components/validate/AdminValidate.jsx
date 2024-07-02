@@ -43,10 +43,10 @@ export const AdminValidate = () => {
         setFilterCompetitorRegistration(arr)
     }
 
-    const handleCompetitorAndAscentList = (competitor) => {
-        setCompetitor(competitor)
+    const handleCompetitorAndAscentList = (competitorObj) => {
+        setCompetitor(competitorObj)
         const arr = []
-        for (const ascent of competitor.competitorAscents) {
+        for (const ascent of competitorObj.competitorAscents) {
             if (allCompetitionsClimblist.filter(climb => climb.climbId === ascent.climbId)) {
                 arr.push(ascent)
             }
@@ -61,13 +61,13 @@ export const AdminValidate = () => {
         getCompetitors().then(competitorArr => {
             setCompetitorList(competitorArr)
         })
-    }, [])
+    }, [competitor])
 
     useEffect(() => {
         getCompetitionList().then(competitionArr => {
             setCompetitionList(competitionArr)
         })
-    }, [])
+    }, [competitor])
 
     useEffect(() => {
         getCompetitionClimbListById(competition.id).then(climbListArr => {
