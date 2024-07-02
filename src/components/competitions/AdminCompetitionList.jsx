@@ -24,7 +24,7 @@ export const AdminCompetitionList = ({ currentUser }) => {
 
     return (
         <article className="wider">
-            <h2 className="margin textDark">Compeititons</h2>
+            <h2 className="margin textDark">Competitions</h2>
             <Table>
                 <thead>
                     <tr>

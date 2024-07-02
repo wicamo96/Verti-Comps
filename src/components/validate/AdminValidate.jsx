@@ -47,7 +47,7 @@ export const AdminValidate = () => {
         setCompetitor(competitorObj)
         const arr = []
         for (const ascent of competitorObj.competitorAscents) {
-            if (allCompetitionsClimblist.filter(climb => climb.climbId === ascent.climbId)) {
+            if (allCompetitionsClimblist.find(climb => climb.id === ascent.climbId && ascent.competitionId === competition.id)) {
                 arr.push(ascent)
             }
         }

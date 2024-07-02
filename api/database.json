@@ -66,8 +66,8 @@
       "date": "2024-07-13",
       "location": "Sport Rock",
       "startTime": "13:00",
-      "inProgress": false,
-      "hasStarted": false,
+      "inProgress": true,
+      "hasStarted": true,
       "userId": 1
     },
     {
@@ -79,6 +79,16 @@
       "inProgress": false,
       "hasStarted": false,
       "userId": 1
+    },
+    {
+      "name": "New Comp",
+      "date": "2024-07-07",
+      "location": "Rock Club",
+      "startTime": "12:00",
+      "inProgress": false,
+      "hasStarted": false,
+      "userId": 1,
+      "id": 4
     }
   ],
   "climbs": [
@@ -186,6 +196,27 @@
       "details": "Volume climbing up the dihedral",
       "competitionId": 3,
       "points": 5
+    },
+    {
+      "name": "Blue",
+      "details": "Climb the slab",
+      "points": "10",
+      "competitionId": 4,
+      "id": 16
+    },
+    {
+      "name": "Orange",
+      "details": "Climb the roof of the cave",
+      "points": "15",
+      "competitionId": 4,
+      "id": 17
+    },
+    {
+      "name": "Yellow",
+      "details": "Climb to a dyno",
+      "points": "20",
+      "competitionId": 4,
+      "id": 18
     }
   ],
   "competitionRegistrants": [
@@ -260,6 +291,12 @@
       "competitionId": 3,
       "competitionPoints": 0,
       "id": 12
+    },
+    {
+      "userId": 2,
+      "competitionId": 4,
+      "competitionPoints": 0,
+      "id": 13
     }
   ],
   "competitorAscents": [
@@ -267,6 +304,7 @@
       "id": 1,
       "userId": 2,
       "climbId": 1,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": ""
@@ -274,6 +312,7 @@
     {
       "userId": 2,
       "climbId": 2,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -282,6 +321,7 @@
     {
       "userId": 2,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -290,6 +330,7 @@
     {
       "userId": 2,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -298,6 +339,7 @@
     {
       "userId": 2,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -306,6 +348,7 @@
     {
       "userId": 3,
       "climbId": 1,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -314,6 +357,7 @@
     {
       "userId": 3,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -322,6 +366,7 @@
     {
       "userId": 3,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -330,6 +375,7 @@
     {
       "userId": 3,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -338,6 +384,7 @@
     {
       "userId": 4,
       "climbId": 3,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -346,6 +393,7 @@
     {
       "userId": 4,
       "climbId": 4,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
@@ -354,10 +402,56 @@
     {
       "userId": 4,
       "climbId": 5,
+      "competitionId": 1,
       "validated": true,
       "flagged": false,
       "notes": "",
       "id": 12
+    },
+    {
+      "userId": 2,
+      "climbId": 6,
+      "competitionId": 2,
+      "validated": false,
+      "flagged": false,
+      "notes": "",
+      "id": 13
+    },
+    {
+      "userId": 2,
+      "climbId": 7,
+      "competitionId": 2,
+      "validated": false,
+      "flagged": false,
+      "notes": "",
+      "id": 14
+    },
+    {
+      "userId": 2,
+      "climbId": 8,
+      "competitionId": 2,
+      "validated": false,
+      "flagged": false,
+      "notes": "",
+      "id": 15
+    },
+    {
+      "userId": 2,
+      "climbId": 9,
+      "competitionId": 2,
+      "validated": false,
+      "flagged": false,
+      "notes": "",
+      "id": 16
+    },
+    {
+      "userId": 2,
+      "climbId": 10,
+      "competitionId": 2,
+      "validated": false,
+      "flagged": false,
+      "notes": "",
+      "id": 17
     }
   ],
   "competitionLeaderboard": [
@@ -375,6 +469,26 @@
       "id": 3,
       "userId": 4,
       "competitionId": 1
+    },
+    {
+      "userId": 6,
+      "competitionId": 2,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "competitionId": 2,
+      "id": 5
+    },
+    {
+      "userId": 2,
+      "competitionId": 2,
+      "id": 6
+    },
+    {
+      "userId": 4,
+      "competitionId": 2,
+      "id": 7
     }
   ],
   "leagueLeaderboard": [
@@ -389,6 +503,14 @@
     {
       "id": 3,
       "userId": 4
+    },
+    {
+      "userId": 6,
+      "id": 4
+    },
+    {
+      "userId": 5,
+      "id": 5
     }
   ]
 }

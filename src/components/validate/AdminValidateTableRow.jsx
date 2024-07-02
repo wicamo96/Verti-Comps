@@ -105,16 +105,17 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
         }
     }
 
+
     return (
         <tr key={ascent.id}>
             <th className="textDark" scope="row">
                 {ascent.climbId}
             </th>
             <td className="textDark">
-                {climb.name}
+                {climb?.name}
             </td>
             <td className="textDark">
-                {climb.points}
+                {climb?.points}
             </td>
             <td>
                 {validated ?

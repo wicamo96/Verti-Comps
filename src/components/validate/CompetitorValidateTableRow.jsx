@@ -3,7 +3,7 @@ import { Button } from "reactstrap"
 import { addUserAscent, deleteUserAscent, findUserClimb } from "../../services/UserServices.jsx"
 import { useNavigate } from "react-router-dom"
 
-export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
+export const CompetitorValidateTableRow = ({ climb, currentUser, competition }) => {
     const [validated, setValidated] = useState(false)
     const [findClimb, setFindClimb] = useState(false)
     const [foundClimbObj, setFoundClimbObj] = useState({})
@@ -17,6 +17,7 @@ export const CompetitorValidateTableRow = ({ climb, currentUser }) => {
             const climbObj = {
                 userId: currentUser.id,
                 climbId: climb.id,
+                competitionId: competition.id,
                 validated: false,
                 flagged: false,
                 notes: ""
