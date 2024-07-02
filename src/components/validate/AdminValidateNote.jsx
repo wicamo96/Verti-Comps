@@ -16,6 +16,7 @@ export const AdminValidateNote = () => {
             id: state.climb.id,
             userId: state.climb.userId,
             climbId: state.climb.climbId,
+            competitionId: state.climb.competitionId,
             validated: false,
             flagged: true,
             notes: note
@@ -28,6 +29,7 @@ export const AdminValidateNote = () => {
             id: state.climb.id,
             userId: state.climb.userId,
             climbId: state.climb.climbId,
+            competitionId: state.climb.competitionId,
             validated: state.climb.validated,
             flagged: false,
             notes: ""
