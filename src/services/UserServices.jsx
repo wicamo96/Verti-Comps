@@ -90,3 +90,7 @@ export const updateCompetitorLeaguePoints = (competitorObj) => {
         body: JSON.stringify(competitorObj)
     })
 }
+
+export const getCompetitorListByCompId = (compId) => {
+    return fetch(`http://localhost:8088/competitionRegistrants?competitionId=${compId}&_expand=user`).then(res => res.json())
+}

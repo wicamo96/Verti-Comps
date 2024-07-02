@@ -5,6 +5,7 @@ import { LeagueLeaderboard } from "../components/leaderboards/LeagueLeaderboard.
 import { CompetitorValidate } from "../components/validate/CompetitorValidate.jsx"
 import { CompetitorValidateNote } from "../components/validate/CompetitorValidateNote.jsx"
 import { CompetitorCompetitionList } from "../components/competitions/CompetitorCompetitionList.jsx"
+import { CompetitorCompetitionDetails } from "../components/competitions/CompetitorCompetitonDetails.jsx"
 
 export const CompetitorViews = ({ currentUser }) => {
     return (
@@ -25,6 +26,7 @@ export const CompetitorViews = ({ currentUser }) => {
                 </Route>
                 <Route path="competitions">
                     <Route index element={<CompetitorCompetitionList currentUser={currentUser} />} />
+                    <Route path="details" element={<CompetitorCompetitionDetails currentUser={currentUser} />} />
                 </Route>
                 <Route path="leagueLeaderboard">
                     <Route index element={<LeagueLeaderboard currentUser={currentUser} />} />

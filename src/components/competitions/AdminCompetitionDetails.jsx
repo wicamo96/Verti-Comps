@@ -8,7 +8,6 @@ export const AdminCompetitionDetails = () => {
     const [competitionRegistration, setCompetitionRegistration] = useState([])
     const [competitionLeaderboard, setCompetitionLeaderboard] = useState([])
     const [competitionLeaderboardAndNames, setCompetitionLeaderboardAndNames] = useState([])
-    const [rankArr, setRankArr] = useState([])
 
     const navigate = useNavigate()
 
