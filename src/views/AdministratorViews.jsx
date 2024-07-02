@@ -9,6 +9,7 @@ import { AdminCompetitionList } from "../components/competitions/AdminCompetitio
 import { CompetitionRegistrants } from "../components/competitions/CompetitionRegistrants.jsx"
 import { EditCompetition } from "../components/competitions/EditCompetition.jsx"
 import { LeagueLeaderboard } from "../components/leaderboards/LeagueLeaderboard.jsx"
+import { AdminCompetitionDetails } from "../components/competitions/AdminCompetitionDetails.jsx"
 
 export const AdministratorViews = ({ currentUser }) => {
     return (
@@ -35,6 +36,7 @@ export const AdministratorViews = ({ currentUser }) => {
                     <Route index element={<AdminCompetitionList currentUser={currentUser} />} />
                     <Route path="registration" element={<CompetitionRegistrants currentUser={currentUser} />} />
                     <Route path="edit" element={<EditCompetition currentUser={currentUser} />} />
+                    <Route path="details" element={<AdminCompetitionDetails />} />
                 </Route>
                 <Route path="leagueLeaderboard">
                     <Route index element={<LeagueLeaderboard currentUser={currentUser} />} />
