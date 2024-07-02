@@ -111,7 +111,7 @@ export const AdminValidateTableRow = ({ ascent, allCompetitionsClimblist, userOb
                 {ascent.climbId}
             </th>
             <td className="textDark">
-                {climb.name}
+                {climb?.name}
             </td>
             <td className="textDark">
                 {climb.points}
