@@ -57,6 +57,7 @@
       "location": "Triangle Rock Club",
       "startTime": "16:30",
       "inProgress": false,
+      "hasStarted": true,
       "userId": 1
     },
     {
@@ -66,6 +67,7 @@
       "location": "Sport Rock",
       "startTime": "13:00",
       "inProgress": false,
+      "hasStarted": false,
       "userId": 1
     },
     {
@@ -75,6 +77,7 @@
       "location": "State Climb",
       "startTime": "11:00",
       "inProgress": false,
+      "hasStarted": false,
       "userId": 1
     }
   ],

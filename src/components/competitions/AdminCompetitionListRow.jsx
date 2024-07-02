@@ -1,7 +1,7 @@
 import { Button } from "reactstrap"
 import { deleteCompetition, getCompetitionsViaLeaderboard, getRegistrantsByCompId } from "../../services/CompetitionServices.jsx"
 import { useEffect, useState } from "react"
-import { getLeagueLeaderboard, postToCompetitionLeaderboard, postToLeagueLeaderboard } from "../../services/LeaderboardServices.jsx"
+import { getLeagueLeaderboard } from "../../services/LeaderboardServices.jsx"
 
 export const AdminCompetitionListRow = ({ competition, currentUser, competitionList, navigate, formattedDate }) => {
     const [compStatus, setCompStatus] = useState(competition.inProgress)
