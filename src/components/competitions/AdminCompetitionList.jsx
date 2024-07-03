@@ -28,9 +28,6 @@ export const AdminCompetitionList = ({ currentUser }) => {
             <Table>
                 <thead>
                     <tr>
-                        <th>
-                            
-                        </th>
                         <th className="textDark">
                             Name
                         </th>
